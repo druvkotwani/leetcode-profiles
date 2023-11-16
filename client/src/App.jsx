@@ -1,11 +1,23 @@
 import Questions from "./components/Questions";
-import Line from "./components/Line";
 import Circle from "./components/Circle";
+import { useState } from "react";
 
 export default function App() {
+
+  const [userName, setUserName] = useState('');
+
+  function handleInputChange(e) {
+    setUserName(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(userName)
+
+  }
+
+  console.log(userName)
   return (
-
-
     <div className="flex justify-center flex-col items-center h-screen">
       <div className="flex items-center justify-center rounded-lg w-[30%] xl:h-[186px] min-h-[186px] bg-[#eee]">
 
@@ -19,16 +31,10 @@ export default function App() {
         </div>
 
       </div>
-      <input type="text" className="w-[250px] h-[40px] rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent mt-5" />
-      <button className="w-[150px] h-[40px] rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent mt-5">Submit</button>
+      <input type="text" onChange={handleInputChange} className="w-[250px] h-[40px] rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent mt-5" />
+      <button onClick={handleSubmit} className="w-[150px] h-[40px] rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent mt-5">Submit</button>
     </div>
-
-
-
-
-
-
-
 
   )
 }
+
