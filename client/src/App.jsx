@@ -15,6 +15,7 @@ export default function App() {
     console.log(userName)
 
   }
+  const total = 165 + 92 + 20;
 
   console.log(userName)
   return (
@@ -22,7 +23,7 @@ export default function App() {
       <div className="flex items-center justify-center rounded-lg w-[30%] xl:h-[186px] min-h-[186px] bg-[#eee]">
 
         <div className=" flex items-center justify-center ">
-          <Circle />
+          <Circle total={total} />
           <div className="flex flex-col gap-3">
             <Questions type={'Easy'} solved={165} total={745} beats={96.9} line={'bg-[#2db55d26]'} line2={'bg-[#01B8A2]'} />
             <Questions type={'Medium'} solved={92} total={1547} beats={84.8} line={'bg-[#ffb80026]'} line2={'bg-[#FFC11F]'} />

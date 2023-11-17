@@ -1,6 +1,5 @@
-import React from 'react'
 
-const Circle = () => {
+const Circle = ({ total }) => {
     return (
         <div className="mr-8 mt-4 flex min-w-[100px] justify-center">
             <div className="shrink-1 z-base relative max-h-[100px] max-w-[100px]">
@@ -10,7 +9,7 @@ const Circle = () => {
                 </svg>
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform cursor-default text-center">
                     <div>
-                        <div className="text-[24px] font-medium text-label-1 dark:text-dark-label-1">277</div>
+                        <div className="text-[24px] font-medium text-label-1 dark:text-dark-label-1">{total}</div>
                         <div className="whitespace-nowrap text-xs text-label-3 dark:text-dark-label-3">Solved</div>
                     </div>
                 </div>
