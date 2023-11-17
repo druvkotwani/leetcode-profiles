@@ -7,7 +7,19 @@ import Profile from "./components/Profile";
 export default function App() {
 
   const [userName, setUserName] = useState('');
-  const [userData, setUserData] = useState(null); // State to hold the fetched data
+
+  const defaultProfileData = {
+    image: '/assets/profile.png',
+    fullName: 'Dhruv Kotwani',
+    username: 'druv_kotwani',
+    badgeImg: '/assets/badge.png',
+    rank: '234, 542',
+  };
+
+  const [userData, setUserData] = useState({
+    profileData: defaultProfileData,
+    questionData: null,
+  });
 
   function handleInputChange(e) {
     setUserName(e.target.value);
@@ -35,8 +47,7 @@ export default function App() {
 
       <div className="rounded-lg w-[80%] lg:w-[30%] xl:h-[486px] h-[486px] bg-[#292829] mb-5">
 
-        <Profile />
-
+        <Profile userData={userData} />
 
         <div className=" flex flex-col lg:flex-row gap-5 items-center justify-center ">
           <Circle total={total} />

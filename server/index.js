@@ -24,6 +24,7 @@ app.get('/:username', async (req, res) => {
 
         //Profile Data
         const fullName = $('div.text-label-1.break-all.text-base.font-semibold').first().text().trim();
+        const image = $('div.relative.flex.h-20.w-20.shrink-0 img').attr('src');
         const badgeImg = $('div.ml-1 img').attr('src');
         const rank = $('span.ttext-label-1.font-medium').text();
 
@@ -48,6 +49,7 @@ app.get('/:username', async (req, res) => {
             username,
             badgeImg: badgeImg ? `https://leetcode.com${badgeImg}` : undefined,
             rank,
+            image: image ? image : undefined,
         };
 
         const totalQuestions = parseInt(easyTotal) + parseInt(mediumTotal) + parseInt(hardTotal);
