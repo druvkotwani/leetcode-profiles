@@ -1,7 +1,6 @@
-import React from 'react'
 import Line from './Line'
 
-const Questions = ({ type, solved, beats, line, total }) => {
+const Questions = ({ type, solved, beats, line, line2, total }) => {
     return (
 
 
@@ -18,7 +17,7 @@ const Questions = ({ type, solved, beats, line, total }) => {
                     <span className="font-medium">{beats}%</span>
                 </p>
             </div>
-            <Line color={line} />
+            <Line color={line} total={total} solved={solved} line2={line2} />
         </div>
     )
 }

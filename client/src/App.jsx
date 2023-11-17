@@ -24,9 +24,9 @@ export default function App() {
         <div className=" flex items-center justify-center ">
           <Circle />
           <div className="flex flex-col gap-3">
-            <Questions type={'Easy'} solved={165} total={745} beats={96.9} line={'bg-[#2db55d26]'} />
-            <Questions type={'Medium'} solved={92} total={1547} beats={84.8} line={'bg-[#ffb80026]'} />
-            <Questions type={'Hard'} solved={20} total={644} beats={77.6} line={'bg-[#ef474326]'} />
+            <Questions type={'Easy'} solved={165} total={745} beats={96.9} line={'bg-[#2db55d26]'} line2={'bg-[#01B8A2]'} />
+            <Questions type={'Medium'} solved={92} total={1547} beats={84.8} line={'bg-[#ffb80026]'} line2={'bg-[#FFC11F]'} />
+            <Questions type={'Hard'} solved={20} total={644} beats={77.6} line={'bg-[#ef474326]'} line2={'bg-[#EF4642]'} />
           </div>
         </div>
 
