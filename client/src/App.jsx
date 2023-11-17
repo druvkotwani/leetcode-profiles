@@ -40,7 +40,7 @@ export default function App() {
               type={'Easy'}
               solved={userData?.questionData?.easySolved || 165}
               total={userData?.questionData?.easyTotal || 745}
-              beats={userData?.questionData?.easyBeats || 96.9}
+              beats={userData?.questionData?.easyBeats || '96.9%'}
               line={userData?.questionData?.line || 'bg-[#2db55d26]'}
               line2={userData?.questionData?.line2 || 'bg-[#01B8A2]'}
             />
@@ -48,7 +48,7 @@ export default function App() {
               type={'Medium'}
               solved={userData?.questionData?.mediumSolved || 92}
               total={userData?.questionData?.mediumTotal || 1547}
-              beats={userData?.questionData?.mediumBeats || 84.8}
+              beats={userData?.questionData?.mediumBeats || '84.8%'}
               line={userData?.questionData?.line || 'bg-[#ffb80026]'}
               line2={userData?.questionData?.line2 || 'bg-[#FFC11F]'}
             />
@@ -56,7 +56,7 @@ export default function App() {
               type={'Hard'}
               solved={userData?.questionData?.hardSolved || 20}
               total={userData?.questionData?.hardTotal || 644}
-              beats={userData?.questionData?.hardBeats || 77.6}
+              beats={userData?.questionData?.hardBeats || "77.6%"}
               line={userData?.questionData?.line || 'bg-[#ef474326]'}
               line2={userData?.questionData?.line2 || 'bg-[#EF4642]'}
             />
