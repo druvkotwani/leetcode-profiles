@@ -12,12 +12,12 @@ export default function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(userName)
+
 
   }
-  const total = 165 + 92 + 20;
+  const total = 277;
 
-  console.log(userName)
+
   return (
     <div className="flex justify-center flex-col items-center h-screen">
       <div className="flex items-center justify-center rounded-lg w-[30%] xl:h-[186px] min-h-[186px] bg-[#292829]">

@@ -1,14 +1,15 @@
 
 const Circle = ({ total }) => {
     const circumference = 2 * Math.PI * 46;
-    const dashLength = (total / 100) * circumference;
-    console.log(dashLength)
+    const percentage = (total / 2936) * 100;
+    const dashLength = circumference * (percentage / 100);
+
     return (
         <div className="mr-8 mt-4 flex min-w-[100px] justify-center ">
             <div className="shrink-1 z-base relative max-h-[100px] max-w-[100px]">
                 <svg className="h-full w-full origin-center -rotate-90 transform" viewBox="0 0 100 100">
                     <circle fill="none" cx="50px" cy="50px" r="46" strokeWidth="3" strokeLinecap="round" stroke="#4B4A4B" className=" w-[100px]"></circle>
-                    <circle fill="none" cx="50px" cy="50px" r="46" strokeWidth="5" strokeLinecap="round" stroke="#FFC11F" className="cursor-pointer drop-shadow-[0_2px_4px_rgba(255,161,22,0.2)]" strokeDasharray="261.268510621281433 261.7580135089795" strokeDashoffset="0" data-difficulty="ALL"></circle>
+                    {dashLength > 0 ? <circle fill="none" cx="50px" cy="50px" r="46" strokeWidth="5" strokeLinecap="round" stroke="#FFC11F" className="cursor-pointer " strokeDasharray={`${dashLength} ${circumference}`} strokeDashoffset="0" data-difficulty="ALL"></circle> : ''}
                 </svg>
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform cursor-default text-center">
                     <div>
