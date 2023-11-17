@@ -20,14 +20,13 @@ export default function App() {
       .then(response => {
         // Set the received data in state
         setUserData(response.data);
-        console.log(userData)
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
   }
 
-  const total = userData.questionData.totalSolved;
+  const total = userData?.questionData?.totalSolved || 277;
 
 
   return (
@@ -37,9 +36,30 @@ export default function App() {
         <div className=" flex items-center justify-center ">
           <Circle total={total} />
           <div className="flex flex-col gap-3">
-            <Questions type={'Easy'} solved={userData.questionData.easySolved} total={userData.questionData.easyTotal} beats={userData.questionData.easyBeats} line={'bg-[#2db55d26]'} line2={'bg-[#01B8A2]'} />
-            <Questions type={'Medium'} solved={userData.questionData.mediumSolved} total={userData.questionData.mediumTotal} beats={userData.questionData.mediumBeats} line={'bg-[#ffb80026]'} line2={'bg-[#FFC11F]'} />
-            <Questions type={'Hard'} solved={userData.questionData.hardSolved} total={userData.questionData.hardTotal} beats={userData.questionData.hardBeats} line={'bg-[#ef474326]'} line2={'bg-[#EF4642]'} />
+            <Questions
+              type={'Easy'}
+              solved={userData?.questionData?.easySolved || 165}
+              total={userData?.questionData?.easyTotal || 745}
+              beats={userData?.questionData?.easyBeats || 96.9}
+              line={userData?.questionData?.line || 'bg-[#2db55d26]'}
+              line2={userData?.questionData?.line2 || 'bg-[#01B8A2]'}
+            />
+            <Questions
+              type={'Medium'}
+              solved={userData?.questionData?.mediumSolved || 92}
+              total={userData?.questionData?.mediumTotal || 1547}
+              beats={userData?.questionData?.mediumBeats || 84.8}
+              line={userData?.questionData?.line || 'bg-[#ffb80026]'}
+              line2={userData?.questionData?.line2 || 'bg-[#FFC11F]'}
+            />
+            <Questions
+              type={'Hard'}
+              solved={userData?.questionData?.hardSolved || 20}
+              total={userData?.questionData?.hardTotal || 644}
+              beats={userData?.questionData?.hardBeats || 77.6}
+              line={userData?.questionData?.line || 'bg-[#ef474326]'}
+              line2={userData?.questionData?.line2 || 'bg-[#EF4642]'}
+            />
           </div>
         </div>
 
