@@ -5,7 +5,7 @@ const Questions = ({ type, solved, beats, line, total }) => {
     return (
 
 
-        <>
+        <div>
             <div className='flex justify-between w-[250px] mb-1'>
                 <div className='flex items-center'>
                     <p className='w-[53px]'>{type}</p>
@@ -19,7 +19,7 @@ const Questions = ({ type, solved, beats, line, total }) => {
                 </p>
             </div>
             <Line color={line} />
-        </>
+        </div>
     )
 }
 
