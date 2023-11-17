@@ -5,7 +5,7 @@ const Circle = ({ total }) => {
     const dashLength = circumference * (percentage / 100);
 
     return (
-        <div className="mr-8 mt-4 flex min-w-[100px] justify-center ">
+        <div className="mt-4 flex min-w-[100px] justify-center ">
             <div className="shrink-1 z-base relative max-h-[100px] max-w-[100px]">
                 <svg className="h-full w-full origin-center -rotate-90 transform" viewBox="0 0 100 100">
                     <circle fill="none" cx="50px" cy="50px" r="46" strokeWidth="3" strokeLinecap="round" stroke="#4B4A4B" className=" w-[100px]"></circle>
