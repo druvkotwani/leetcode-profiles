@@ -1,10 +1,12 @@
 import Questions from "./components/Questions";
 import Circle from "./components/Circle";
 import { useState } from "react";
+import axios from "axios";
 
 export default function App() {
 
   const [userName, setUserName] = useState('');
+  const [userData, setUserData] = useState(null); // State to hold the fetched data
 
   function handleInputChange(e) {
     setUserName(e.target.value);
@@ -13,9 +15,19 @@ export default function App() {
   function handleSubmit(e) {
     e.preventDefault();
 
-
+    // Make an HTTP request to your backend
+    axios.get(`http://localhost:8000/${userName}`)
+      .then(response => {
+        // Set the received data in state
+        setUserData(response.data);
+        console.log(userData)
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
   }
-  const total = 277;
+
+  const total = userData.questionData.totalSolved;
 
 
   return (
@@ -25,9 +37,9 @@ export default function App() {
         <div className=" flex items-center justify-center ">
           <Circle total={total} />
           <div className="flex flex-col gap-3">
-            <Questions type={'Easy'} solved={165} total={745} beats={96.9} line={'bg-[#2db55d26]'} line2={'bg-[#01B8A2]'} />
-            <Questions type={'Medium'} solved={92} total={1547} beats={84.8} line={'bg-[#ffb80026]'} line2={'bg-[#FFC11F]'} />
-            <Questions type={'Hard'} solved={20} total={644} beats={77.6} line={'bg-[#ef474326]'} line2={'bg-[#EF4642]'} />
+            <Questions type={'Easy'} solved={userData.questionData.easySolved} total={userData.questionData.easyTotal} beats={userData.questionData.easyBeats} line={'bg-[#2db55d26]'} line2={'bg-[#01B8A2]'} />
+            <Questions type={'Medium'} solved={userData.questionData.mediumSolved} total={userData.questionData.mediumTotal} beats={userData.questionData.mediumBeats} line={'bg-[#ffb80026]'} line2={'bg-[#FFC11F]'} />
+            <Questions type={'Hard'} solved={userData.questionData.hardSolved} total={userData.questionData.hardTotal} beats={userData.questionData.hardBeats} line={'bg-[#ef474326]'} line2={'bg-[#EF4642]'} />
           </div>
         </div>
 

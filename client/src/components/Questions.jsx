@@ -14,7 +14,7 @@ const Questions = ({ type, solved, beats, line, line2, total }) => {
                     </div>
                 </div >
                 <p className="space-x-1.5"><span className='text-[#9FA0A5]'>Beats</span>
-                    <span className="font-medium text-[#BDBFC2]">{beats}%</span>
+                    <span className="font-medium text-[#BDBFC2]">{beats}</span>
                 </p>
             </div>
             <Line color={line} total={total} solved={solved} line2={line2} />
