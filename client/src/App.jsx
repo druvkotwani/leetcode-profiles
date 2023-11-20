@@ -3,6 +3,7 @@ import Circle from "./components/Circle";
 import { useState } from "react";
 import axios from "axios";
 import Profile from "./components/Profile";
+import About from "./components/About";
 
 export default function App() {
 
@@ -45,11 +46,14 @@ export default function App() {
   return (
     <div className="flex justify-center flex-col items-center h-screen">
 
-      <div className="rounded-lg w-[80%] lg:w-[30%] xl:h-[486px] h-[486px] bg-[#292829] mb-5">
+      <div className="rounded-lg w-[95%] sm:w-[65%] md:w-[50%] lg:w-[35%] xl:w-[30%]  h-[303px] bg-[#292829] mb-5">
 
-        <Profile userData={userData} />
-
-        <div className=" flex flex-col lg:flex-row gap-5 items-center justify-center ">
+        <div className="flex items-center justify-around ">
+          <Profile userData={userData} />
+          <About />
+        </div>
+        <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="" />
+        <div className=" flex lg:flex-row gap-5 items-center justify-center mt-4">
           <Circle total={total} />
           <div className="flex flex-col gap-3">
             <Questions
