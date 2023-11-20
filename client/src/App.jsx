@@ -54,7 +54,7 @@ export default function App() {
   return (
     <div className="flex justify-center flex-col items-center h-screen">
 
-      <div className="rounded-lg w-[95%] sm:w-[65%] md:w-[50%] lg:w-[35%] xl:w-[30%]  h-[303px] bg-[#292829] mb-5">
+      <div className="rounded-lg w-[95%] sm:w-[65%] md:w-[50%] lg:w-[35%] xl:w-[30%]  h-[270px] bg-[#292829] mb-5">
 
         <div className="flex items-center justify-around ">
           <Profile userData={userData} />

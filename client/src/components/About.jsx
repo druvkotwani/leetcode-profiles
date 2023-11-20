@@ -2,10 +2,11 @@
 const About = ({ result }) => {
     return (
         <div className="mt-4 mb-2 justify-self-start">
-            <p className="flex">
+
+            {/* <p className="flex">
                 <iconify-icon icon="carbon:location" width="16" height="19" style={{ color: 'white', marginRight: '5px' }}></iconify-icon>
                 <span className='text-sm text-[#BDBEC3] '>India</span>
-            </p>
+            </p> */}
             {
                 result.website.link && (<p className="flex">
                     <iconify-icon icon="ph:globe-light" style={{ color: 'white', marginRight: '5px' }} width="16" height="19"></iconify-icon>
