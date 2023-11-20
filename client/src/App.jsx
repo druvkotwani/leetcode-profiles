@@ -17,9 +17,17 @@ export default function App() {
     rank: '234, 542',
   };
 
+  let defaultAboutUs = {
+    linkedin: { link: "https://linkedin.com/in/dhruv-kotwani", text: "dhruv-kotwani" },
+    twitter: { link: "https://twitter.com/druv_kotwani", text: "druv_kotwani" },
+    github: { link: "https://github.com/druvkotwani", text: "druvkotwani" },
+    website: { link: "https://dhruvkotwani.me", text: "dhruvkotwani.me" }
+  };
+
   const [userData, setUserData] = useState({
     profileData: defaultProfileData,
     questionData: null,
+    aboutData: defaultAboutUs,
   });
 
   function handleInputChange(e) {
@@ -50,7 +58,7 @@ export default function App() {
 
         <div className="flex items-center justify-around ">
           <Profile userData={userData} />
-          <About />
+          <About result={userData.aboutData} />
         </div>
         <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="" />
         <div className=" flex lg:flex-row gap-5 items-center justify-center mt-4">
