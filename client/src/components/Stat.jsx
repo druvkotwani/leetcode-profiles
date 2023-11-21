@@ -30,6 +30,8 @@ export default function Stat() {
         hardSolved: 20,
         hardTotal: 644,
         hardBeats: '77.6%',
+        totalSolved: 277,
+        totalQuestions: 2940,
     };
 
     const [userData, setUserData] = useState({
@@ -37,8 +39,6 @@ export default function Stat() {
         questionData: defaultQuestionData,
         aboutData: defaultAboutUs,
     });
-
-    const total = userData?.questionData?.totalSolved || 277;
 
 
     return (
@@ -50,7 +50,7 @@ export default function Stat() {
                 </div>
                 <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="h-[0.5px] bg-white" />
                 <div className=" flex lg:flex-row gap-5 items-center justify-center mt-4">
-                    <Circle total={total} />
+                    <Circle total={userData?.questionData?.totalSolved} />
                     <div className="flex flex-col gap-3">
                         <Questions
                             type={'Easy'}
