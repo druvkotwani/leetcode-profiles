@@ -1,4 +1,5 @@
 import Stat from "./components/Stat";
+import StatsGenerator from "./components/StatsGenerator";
 
 export default function App() {
 
@@ -10,13 +11,11 @@ export default function App() {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <Stat />
             <Stat />
-            <Stat />
-            <Stat />
-            <Stat />
-            <Stat />
+
           </div>
         </div>
       </div>
+      <StatsGenerator />
 
     </div>
   )

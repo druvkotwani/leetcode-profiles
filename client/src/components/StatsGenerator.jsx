@@ -24,9 +24,21 @@ export default function StatsGenerator() {
         website: { link: "https://dhruvkotwani.me", text: "dhruvkotwani.me" }
     };
 
+    const defaultQuestionData = {
+        easySolved: 165,
+        easyTotal: 745,
+        easyBeats: '96.9%',
+        mediumSolved: 92,
+        mediumTotal: 1547,
+        mediumBeats: '84.8%',
+        hardSolved: 20,
+        hardTotal: 644,
+        hardBeats: '77.6%',
+    };
+
     const [userData, setUserData] = useState({
         profileData: defaultProfileData,
-        questionData: null,
+        questionData: defaultQuestionData,
         aboutData: defaultAboutUs,
     });
 
@@ -67,27 +79,27 @@ export default function StatsGenerator() {
                     <div className="flex flex-col gap-3">
                         <Questions
                             type={'Easy'}
-                            solved={userData?.questionData?.easySolved || 165}
-                            total={userData?.questionData?.easyTotal || 745}
-                            beats={userData?.questionData?.easyBeats || '96.9%'}
-                            line={userData?.questionData?.line || 'bg-[#2db55d26]'}
-                            line2={userData?.questionData?.line2 || 'bg-[#01B8A2]'}
+                            solved={userData?.questionData?.easySolved}
+                            total={userData?.questionData?.easyTotal}
+                            beats={userData?.questionData?.easyBeats}
+                            line='bg-[#2db55d26]'
+                            line2='bg-[#01B8A2]'
                         />
                         <Questions
                             type={'Medium'}
-                            solved={userData?.questionData?.mediumSolved || 92}
-                            total={userData?.questionData?.mediumTotal || 1547}
-                            beats={userData?.questionData?.mediumBeats || '84.8%'}
-                            line={userData?.questionData?.line || 'bg-[#ffb80026]'}
-                            line2={userData?.questionData?.line2 || 'bg-[#FFC11F]'}
+                            solved={userData?.questionData?.mediumSolved}
+                            total={userData?.questionData?.mediumTotal}
+                            beats={userData?.questionData?.mediumBeats}
+                            line='bg-[#ffb80026]'
+                            line2='bg-[#FFC11F]'
                         />
                         <Questions
                             type={'Hard'}
-                            solved={userData?.questionData?.hardSolved || 20}
-                            total={userData?.questionData?.hardTotal || 644}
-                            beats={userData?.questionData?.hardBeats || "77.6%"}
-                            line={userData?.questionData?.line || 'bg-[#ef474326]'}
-                            line2={userData?.questionData?.line2 || 'bg-[#EF4642]'}
+                            solved={userData?.questionData?.hardSolved}
+                            total={userData?.questionData?.hardTotal}
+                            beats={userData?.questionData?.hardBeats}
+                            line='bg-[#ef474326]'
+                            line2='bg-[#EF4642]'
                         />
                     </div>
                 </div>
