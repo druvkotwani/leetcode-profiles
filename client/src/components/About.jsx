@@ -9,7 +9,7 @@ const About = ({ result }) => {
             </p> */}
             {
                 result.website.link && (<p className="flex">
-                    <iconify-icon icon="streamline-emojis:globe-showing-americas" style={{ color: 'white', marginRight: '5px' }} width="19" height="19"></iconify-icon>
+                    <iconify-icon icon="streamline-emojis:globe-showing-americas" style={{ color: 'white', marginRight: '1px' }} width="19" height="19"></iconify-icon>
                     <span className='text-sm text-[#BDBEC3] '>
                         <a href={result.website.link} target="_blank" rel='noreferrer' className="">{result.website.text}</a>
                     </span>
