@@ -42,7 +42,7 @@ export default function Stat() {
 
 
     return (
-        <div className="flex justify-center flex-col items-center rounded-lg h-[270px] bg-[#292829]">
+        <div className="flex justify-center flex-col items-center rounded-lg h-[280px] bg-[#292829]">
             <div>
                 <div className="flex gap-1 xl:gap-4 items-center justify-center ">
                     <Profile userData={userData} />
