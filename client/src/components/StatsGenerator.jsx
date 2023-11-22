@@ -74,6 +74,14 @@ export default function StatsGenerator({ setShowStats }) {
     };
 
     const addData = async () => {
+        if (userName.trim() !== '') {
+            // Proceed with the action since the input is not empty
+            // Your logic here
+        } else {
+            // Input is empty, show an error message or prevent the action
+            // For now, let's just console log a message
+            console.log('Please enter a username.');
+        }
         try {
             const transformedUserData = transformUserData(userData);
             const dataCollection = collection(firestore, "users_stats")
@@ -102,6 +110,14 @@ export default function StatsGenerator({ setShowStats }) {
 
     function handleSubmit(e) {
         e.preventDefault();
+        if (userName.trim() !== '') {
+            // Proceed with the action since the input is not empty
+            // Your logic here
+        } else {
+            // Input is empty, show an error message or prevent the action
+            // For now, let's just console log a message
+            console.log('Please enter a username.');
+        }
         setLoading(true); // Start loading when fetching data
         // Make an HTTP request to your backend
         axios.get(`http://localhost:8000/${userName}`)
@@ -173,8 +189,8 @@ export default function StatsGenerator({ setShowStats }) {
                 </div>
             </form>
             <div className="flex gap-3 mt-3">
-                <button onClick={handleSubmit} className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border  border-gray-600 px-4 py-2 text-base font-bold shadow">Generate Stats</button>
-                <button onClick={addData} className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border border-gray-600  px-4 py-2 text-base font-bold shadow">Add To HallOfFame</button>
+                <button onClick={handleSubmit} className={`${userName.trim() === '' ? 'pointer-events-none opacity-50' : ''} rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border  border-gray-600 px-4 py-2 text-base font-bold shadow`}>Generate Stats</button>
+                <button onClick={addData} className={`${userName.trim() === '' ? 'pointer-events-none opacity-50' : ''} rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border  border-gray-600 px-4 py-2 text-base font-bold shadow`}>Add To HallOfFame</button>
             </div>
             <button onClick={() => setShowStats(false)} className="mt-2">
                 <iconify-icon icon="flat-color-icons:close-up-mode" width="60" height="60"></iconify-icon>
