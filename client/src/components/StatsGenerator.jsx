@@ -173,10 +173,12 @@ export default function StatsGenerator({ setShowStats }) {
                 </div>
             </form>
             <div className="flex gap-3 mt-3">
-                <button onClick={handleSubmit} className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border  border-gray-600 px-4 py-2 text-base font-bold shadow">Get stats</button>
+                <button onClick={handleSubmit} className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border  border-gray-600 px-4 py-2 text-base font-bold shadow">Generate Stats</button>
                 <button onClick={addData} className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border border-gray-600  px-4 py-2 text-base font-bold shadow">Add To HallOfFame</button>
-                <button onClick={() => setShowStats(false)} className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#ff5555] border border-gray-600  px-4 py-2 text-base font-bold shadow">Close X</button>
             </div>
+            <button onClick={() => setShowStats(false)} className="mt-2">
+                <iconify-icon icon="flat-color-icons:close-up-mode" width="60" height="60"></iconify-icon>
+            </button>
         </div >
 
     )

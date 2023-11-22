@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <>
-      <div className="h-screen">
+      <div className="h-screen overflow-x-hidden">
         <button onClick={() => setShowStats(prevShowStats => !prevShowStats)}
           className="z-50 fixed w-12 h-12 bottom-0 right-0 m-4 rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border border-gray-600 px-3 py-2 text-sm font-bold shadow-white   animated-button">
           <svg width="95" height="111" viewBox="0 0 95 111" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-auto max-w-none">
@@ -35,6 +35,8 @@ export default function App() {
         <div className="flex flex-col mx-auto max-w-screen-xl px-2 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-4 py-4 ">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <Stat />
+              <Stat />
               <Stat />
               <Stat />
 
