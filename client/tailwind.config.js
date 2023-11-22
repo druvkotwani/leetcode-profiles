@@ -8,4 +8,7 @@ export default {
     extend: {},
   },
   plugins: [require("daisyui")],
+  boxShadow: {
+    white: '0 0 10px #fff',
+  },
 }
