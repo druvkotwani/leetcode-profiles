@@ -6,10 +6,12 @@ import Profile from "./Profile";
 import About from "./About";
 import { getDoc, collection, setDoc, doc } from "firebase/firestore";
 import { firestore } from "../firebase";
+import Skeleton from "./Skeleton";
 
 export default function StatsGenerator() {
 
     const [userName, setUserName] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const defaultProfileData = {
         image: '/assets/profile.png',
@@ -100,12 +102,13 @@ export default function StatsGenerator() {
 
     function handleSubmit(e) {
         e.preventDefault();
-
+        setLoading(true); // Start loading when fetching data
         // Make an HTTP request to your backend
         axios.get(`http://localhost:8000/${userName}`)
             .then(response => {
                 // Set the received data in state
                 setUserData(response.data);
+                setLoading(false); // Stop loading after data is fetched
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
@@ -118,7 +121,7 @@ export default function StatsGenerator() {
         <div className="flex justify-center flex-col items-center h-screen">
 
             {/* Stats */}
-            <div className="rounded-lg w-[95%] sm:w-[65%] md:w-[50%] lg:w-[35%] xl:w-[30%]  h-[270px] bg-[#292829] mb-5">
+            {loading ? (<Skeleton />) : (<div className="rounded-lg w-[95%] sm:w-[65%] md:w-[50%] lg:w-[35%] xl:w-[30%]  h-[270px] bg-[#292829] mb-5">
 
                 <div className="flex items-center justify-around ">
                     <Profile userData={userData} />
@@ -158,15 +161,22 @@ export default function StatsGenerator() {
                 </div>
 
 
-            </div>
+            </div >)
+            }
+
 
             {/* Buttons + Input */}
-            <input type="text" onChange={handleInputChange} className="w-[250px] h-[40px] rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent mt-5" />
-            <div className="flex gap-3">
-                <button onClick={handleSubmit} className="w-[100px] h-[40px] rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent mt-5 text-[#FFFEFE]">Submit</button>
-                <button onClick={addData} className="w-[150px] h-[40px] rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent mt-5 text-[#FFFEFE]">Add To Homepage</button>
+            <form className="flex items-center w-80">
+                <label htmlFor="simple-search" className="sr-only">Search</label>
+                <div className="relative w-full">
+                    <input onChange={handleInputChange} type="text" id="simple-search" className="border border-gray text-sm rounded-lg block shadow w-full pl-3 p-2.5  bg-[#0e0e0e]  border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Enter the username to Generate Stats..." required="" />
+                </div>
+            </form>
+            <div className="flex gap-3 mt-3">
+                <button onClick={handleSubmit} className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border  border-gray-600 px-4 py-2 text-base font-bold shadow">Submit</button>
+                <button onClick={addData} className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border border-gray-600  px-4 py-2 text-base font-bold shadow">Add To Homepage</button>
             </div>
-        </div>
+        </div >
 
     )
 }
