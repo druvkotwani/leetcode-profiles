@@ -16,9 +16,9 @@ const Profile = ({ userData }) => {
                     </div>
                     <div className="flex items-center flex-nowrap" >
                         <p className="text-xs text-[#9FA1A4]">{userData.profileData.username}</p>
-                        <div className="ml-1">
+                        {userData.profileData.badgeImg && <div className="ml-1">
                             <img src={userData.profileData.badgeImg} className="h-[14px] w-[14px]" />
-                        </div>
+                        </div>}
                     </div>
                     <p className="flex mt-3 items-end space-x-[5px] text-base">
                         <span className="text-sm text-[#9FA1A4] ">Rank</span>
