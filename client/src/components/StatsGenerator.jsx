@@ -115,7 +115,7 @@ export default function StatsGenerator({ setShowStats }) {
         }
         setLoading(true); // Start loading when fetching data
         // Make an HTTP request to your backend
-        axios.get(`http://localhost:8000/${userName}`)
+        axios.get(`https://bakcen.onrender.com/${userName}`)
             .then(response => {
                 // Set the received data in state
                 setUserData(response.data);
