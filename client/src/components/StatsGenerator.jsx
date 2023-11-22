@@ -116,6 +116,8 @@ export default function StatsGenerator() {
 
     return (
         <div className="flex justify-center flex-col items-center h-screen">
+
+            {/* Stats */}
             <div className="rounded-lg w-[95%] sm:w-[65%] md:w-[50%] lg:w-[35%] xl:w-[30%]  h-[270px] bg-[#292829] mb-5">
 
                 <div className="flex items-center justify-around ">
@@ -157,6 +159,8 @@ export default function StatsGenerator() {
 
 
             </div>
+
+            {/* Buttons + Input */}
             <input type="text" onChange={handleInputChange} className="w-[250px] h-[40px] rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent mt-5" />
             <div className="flex gap-3">
                 <button onClick={handleSubmit} className="w-[100px] h-[40px] rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent mt-5 text-[#FFFEFE]">Submit</button>
