@@ -55,10 +55,10 @@ const Navbar = () => {
                             </form>
                             <div className='flex '>
                                 <a className="rounded-md bg-[#0e0e0e] text-white hover:bg-gray-600 border border-gray-600 px-3 ml-1 py-2.5 text-sm font-medium  shadow" href="https://github.com/druvkotwani/Leetcode-Profiles/">⭐</a>
-                                <a className="rounded-md bg-[#0e0e0e] text-white hover:bg-gray-600 border border-gray-600 px-3 ml-1 py-2 text-sm font-medium  shadow" href="https://github.com/druvkotwani/Leetcode-Profiles/">
+                                <a className="rounded-md bg-[#0e0e0e] text-white hover:bg-gray-600 border border-gray-600 px-3 ml-1 py-2 text-sm font-medium  shadow" href="https://linkedin.com/in/dhruv-kotwani">
                                     <iconify-icon icon="devicon:linkedin" style={{ color: 'white', }} width="22" height="22"></iconify-icon>
                                 </a>
-                                <a className="rounded-md bg-[#0e0e0e] text-white hover:bg-gray-600 border border-gray-600 px-3 ml-1 py-2 text-sm font-medium  shadow" href="https://github.com/druvkotwani/Leetcode-Profiles/">
+                                <a className="rounded-md bg-[#0e0e0e] text-white hover:bg-gray-600 border border-gray-600 px-3 ml-1 py-2 text-sm font-medium  shadow" href="https://twitter.com/druv_kotwani">
                                     <iconify-icon icon="fa6-brands:square-x-twitter" style={{ color: 'white', }} width="22" height="22"></iconify-icon>
                                 </a>
                             </div>
