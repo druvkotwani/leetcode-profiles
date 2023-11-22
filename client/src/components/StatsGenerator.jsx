@@ -53,6 +53,7 @@ export default function StatsGenerator({ setShowStats }) {
             fullName: userData.profileData.fullName,
             image: userData.profileData.image,
             username: userData.profileData.username,
+            badgeImg: userData.profileData.badgeImg || '',
             rank: userData.profileData.rank,
             easySolved: userData.questionData.easySolved,
             easyTotal: userData.questionData.easyTotal,
@@ -74,14 +75,6 @@ export default function StatsGenerator({ setShowStats }) {
     };
 
     const addData = async () => {
-        if (userName.trim() !== '') {
-            // Proceed with the action since the input is not empty
-            // Your logic here
-        } else {
-            // Input is empty, show an error message or prevent the action
-            // For now, let's just console log a message
-            console.log('Please enter a username.');
-        }
         try {
             const transformedUserData = transformUserData(userData);
             const dataCollection = collection(firestore, "users_stats")
@@ -102,6 +95,8 @@ export default function StatsGenerator({ setShowStats }) {
         catch (err) {
             console.log(err);
         }
+        setShowStats(false)
+
     }
 
     function handleInputChange(e) {
@@ -140,7 +135,7 @@ export default function StatsGenerator({ setShowStats }) {
             {loading ? (<Skeleton />) : (<div className="rounded-lg w-[95%] sm:w-[65%] md:w-[50%] lg:w-[35%] xl:w-[30%]  h-[270px] bg-[#292829] mb-5">
 
                 <div className="flex items-center justify-around ">
-                    <Profile userData={userData} />
+                    <Profile userData={userData.profileData} />
                     <About result={userData.aboutData} />
                 </div>
 

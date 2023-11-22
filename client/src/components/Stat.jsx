@@ -1,78 +1,88 @@
 import Questions from "./Questions";
 import Circle from "./Circle";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Profile from "./Profile";
 import About from "./About";
 
-export default function Stat() {
+export default function Stat({ data }) {
+    const [userData, setUserData] = useState({});
 
-    const defaultProfileData = {
-        image: '/assets/profile.png',
-        fullName: 'Dhruv Kotwani',
-        username: 'druv_kotwani',
-        badgeImg: '/assets/badge.png',
-        rank: '234, 542',
-    };
+    const setDataManually = () => {
+        const newProfileData = {
+            fullName: data.fullName,
+            image: data.image,
+            badgeImg: data.badgeImg,
+            username: data.username,
+            rank: data.rank,
+        };
 
-    let defaultAboutUs = {
-        linkedin: { link: "https://linkedin.com/in/dhruv-kotwani", text: "dhruv-kotwani" },
-        twitter: { link: "https://twitter.com/druv_kotwani", text: "druv_kotwani" },
-        github: { link: "https://github.com/druvkotwani", text: "druvkotwani" },
-        website: { link: "https://dhruvkotwani.me", text: "dhruvkotwani.me" }
-    };
-    const defaultQuestionData = {
-        easySolved: 165,
-        easyTotal: 745,
-        easyBeats: '96.9%',
-        mediumSolved: 92,
-        mediumTotal: 1547,
-        mediumBeats: '84.8%',
-        hardSolved: 20,
-        hardTotal: 644,
-        hardBeats: '77.6%',
-        totalSolved: 277,
-        totalQuestions: 2940,
-    };
+        const newQuestionData = {
+            easySolved: data.easySolved,
+            easyTotal: data.easyTotal,
+            easyBeats: data.easyBeats,
+            mediumSolved: data.mediumSolved,
+            mediumTotal: data.mediumTotal,
+            mediumBeats: data.mediumBeats,
+            hardSolved: data.hardSolved,
+            hardTotal: data.hardTotal,
+            hardBeats: data.hardBeats,
+            totalSolved: data.totalSolved,
+            totalQuestions: data.totalQuestions,
+        };
 
-    const [userData, setUserData] = useState({
-        profileData: defaultProfileData,
-        questionData: defaultQuestionData,
-        aboutData: defaultAboutUs,
-    });
+        const newAboutData = {
+            linkedin: data.linkedin,
+            twitter: data.twitter,
+            github: data.github,
+            website: data.website,
+            // Add other about data fields as needed
+        }
+        setUserData({
+            profileData: newProfileData,
+            questionData: newQuestionData,
+            aboutData: newAboutData,
+        });
+    }
+    useEffect(() => {
+        if (data) {
+            setDataManually(data);
+        }
+    }, [data]);
+
 
 
     return (
         <div className="flex justify-center flex-col items-center rounded-lg h-[280px] bg-[#292829]">
             <div>
-                <div className="flex gap-1 xl:gap-4 items-center justify-center ">
-                    <Profile userData={userData} />
-                    <About result={userData.aboutData} />
+                <div className="flex gap-1 xl:gap-4 items-center justify-between ">
+                    <Profile userData={userData?.profileData} />
+                    <About result={userData?.aboutData} />
                 </div>
                 <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="h-[0.5px] bg-white" />
                 <div className=" flex lg:flex-row gap-5 items-center justify-center mt-4">
-                    <Circle total={userData?.questionData?.totalSolved} />
+                    <Circle total={data?.totalSolved} />
                     <div className="flex flex-col gap-3">
                         <Questions
                             type={'Easy'}
-                            solved={userData?.questionData?.easySolved}
-                            total={userData?.questionData?.easyTotal}
-                            beats={userData?.questionData?.easyBeats}
+                            solved={data?.easySolved}
+                            total={data?.easyTotal}
+                            beats={data?.easyBeats}
                             line='bg-[#2db55d26]'
                             line2='bg-[#01B8A2]'
                         />
                         <Questions
                             type={'Medium'}
-                            solved={userData?.questionData?.mediumSolved}
-                            total={userData?.questionData?.mediumTotal}
-                            beats={userData?.questionData?.mediumBeats}
+                            solved={data?.mediumSolved}
+                            total={data?.mediumTotal}
+                            beats={data?.mediumBeats}
                             line='bg-[#ffb80026]'
                             line2='bg-[#FFC11F]'
                         />
                         <Questions
                             type={'Hard'}
-                            solved={userData?.questionData?.hardSolved}
-                            total={userData?.questionData?.hardTotal}
-                            beats={userData?.questionData?.hardBeats}
+                            solved={data?.hardSolved}
+                            total={data?.hardTotal}
+                            beats={data?.hardBeats}
                             line='bg-[#ef474326]'
                             line2='bg-[#EF4642]'
                         />
