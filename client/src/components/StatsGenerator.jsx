@@ -53,7 +53,7 @@ export default function StatsGenerator({ setShowStats }) {
             fullName: userData.profileData.fullName,
             image: userData.profileData.image,
             username: userData.profileData.username,
-            badgeImg: userData.profileData.badgeImg,
+            badgeImg: userData.profileData.badgeImg || '',
             rank: userData.profileData.rank,
             easySolved: userData.questionData.easySolved,
             easyTotal: userData.questionData.easyTotal,
