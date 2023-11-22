@@ -1,6 +1,8 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore'; // Import any other Firebase services you plan to use
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore"; // Add Firestore module import
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDQ-_Qp-x7ljcWnzB7jtqkyppO0LxGCYfo",
     authDomain: "leetcodeprofilesdata.firebaseapp.com",
@@ -11,6 +13,11 @@ const firebaseConfig = {
     measurementId: "G-K62NLZLQ5G"
 };
 
-firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
-export const firestore = firebase.firestore();
+// Get a Firestore instance
+const firestore = getFirestore(app);
+
+export { app, analytics, firestore }; // Export Firestore instance along with others if needed
