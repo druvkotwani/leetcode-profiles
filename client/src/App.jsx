@@ -2,11 +2,32 @@ import Navbar from "./components/Navbar";
 import Stat from "./components/Stat";
 import StatsGenerator from "./components/StatsGenerator";
 import { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { firestore } from "./firebase";
 
 import "./App.css";
 
 export default function App() {
   const [showStats, setShowStats] = useState(false);
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const getContacts = async () => {
+      try {
+        const dataCollection = collection(firestore, "users_stats");
+        const dataSnapshot = await getDocs(dataCollection);
+        const dataList = dataSnapshot.docs.map((doc) => {
+          return doc.data()
+        })
+        setData(dataList);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getContacts();
+  }, []);
 
   useEffect(() => {
     // Set an interval to toggle the animation class every 5 seconds
@@ -35,11 +56,11 @@ export default function App() {
         <div className="flex flex-col mx-auto max-w-screen-xl px-2 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-4 py-4 ">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              <Stat />
-              <Stat />
-              <Stat />
-              <Stat />
-
+              {
+                data.map(data => (
+                  <Stat key={data.username} data={data} />
+                ))
+              }
             </div>
           </div>
         </div>
