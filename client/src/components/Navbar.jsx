@@ -33,16 +33,16 @@ const Navbar = () => {
                                 {/* <a target="_blank" rel="noopener noreferrer" className="rounded-md bg-[#0e0e0e] text-white hover:bg-gray-600 border hidden sm:block border-gray-600 px-3 py-2 text-sm font-bold shadow" href="https://dhruvkotwani.me/">
                                 <iconify-icon icon="streamline-emojis:globe-showing-americas" style={{ color: 'white', }} width="22" height="22"></iconify-icon>
                             </a> */}
-                                <a target="_blank" rel="noopener noreferrer" className="rounded-md bg-[#0e0e0e] text-white hover:bg-gray-600 border hidden sm:block border-gray-600 px-3 py-2 text-sm font-bold shadow" href="https://linkedin.com/in/dhruv-kotwani">
+                                <a target="_blank" rel="noopener noreferrer" className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border hidden sm:block border-gray-600 px-3 py-2 text-sm font-bold shadow" href="https://linkedin.com/in/dhruv-kotwani">
                                     <iconify-icon icon="devicon:linkedin" style={{ color: 'white', }} width="22" height="22"></iconify-icon>
                                 </a>
-                                <a target="_blank" rel="noopener noreferrer" className="rounded-md bg-[#0e0e0e] text-white hover:bg-gray-600 border hidden sm:block border-gray-600 px-3 py-2 text-sm font-medium shadow" href="https://github.com/druvkotwani">
+                                <a target="_blank" rel="noopener noreferrer" className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border hidden sm:block border-gray-600 px-3 py-2 text-sm font-medium shadow" href="https://github.com/druvkotwani">
                                     <iconify-icon icon="mdi:github" style={{ color: 'white', }} width="22" height="22"></iconify-icon>
                                 </a>
-                                <a target="_blank" rel="noopener noreferrer" className="rounded-md bg-[#0e0e0e] text-white hover:bg-gray-600 border hidden sm:block border-gray-600 px-3 py-2 text-sm font-medium  shadow" href="https://twitter.com/druv_kotwani">
+                                <a target="_blank" rel="noopener noreferrer" className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border hidden sm:block border-gray-600 px-3 py-2 text-sm font-medium  shadow" href="https://twitter.com/druv_kotwani">
                                     <iconify-icon icon="fa6-brands:square-x-twitter" style={{ color: 'white', }} width="22" height="22"></iconify-icon>
                                 </a>
-                                <a className="rounded-md bg-[#0e0e0e] text-white hover:bg-gray-600 border border-gray-600 hidden  sm:block px-4 py-2.5 text-sm font-medium shadow" target="_blank" rel="noopener noreferrer" title="Add your Leetcode Profile to this list" href="https://github.com/druvkotwani/Leetcode-Profiles/">Contribute ⭐</a>
+                                <a className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border border-gray-600 hidden  sm:block px-4 py-2.5 text-sm font-medium shadow" target="_blank" rel="noopener noreferrer" title="Add your Leetcode Profile to this list" href="https://github.com/druvkotwani/Leetcode-Profiles/">Contribute ⭐</a>
                             </div>
 
                             {/* Smaller devices */}
@@ -50,15 +50,15 @@ const Navbar = () => {
                                 <form className="items-center flex">
                                     <label htmlFor="simple-search" className="sr-only">Search</label>
                                     <div className="relative w-full">
-                                        <input type="text" id="simple-search" className="border border-gray text-sm rounded-lg block w-full pl-3 p-2.5  bg-[#0e0e0e]  border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 shadow focus:border-blue-500" placeholder="Search user profile..." required="" />
+                                        <input type="text" id="simple-search" className="border border-gray text-sm rounded-lg block w-full pl-3 p-2.5  bg-[#0e0e0e] border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 shadow focus:border-blue-500" placeholder="Search user profile..." required="" />
                                     </div>
                                 </form>
                                 <div className='flex'>
-                                    <a className="rounded-md bg-[#0e0e0e] text-white hover:bg-gray-600 border border-gray-600 px-3 ml-1 py-2.5 text-sm font-medium  shadow" href="https://github.com/druvkotwani/Leetcode-Profiles/">⭐</a>
-                                    <a className="rounded-md bg-[#0e0e0e] text-white hover:bg-gray-600 border border-gray-600 px-3 ml-1 py-2 text-sm font-medium  shadow" href="https://linkedin.com/in/dhruv-kotwani">
+                                    <a className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border border-gray-600 px-3 ml-1 py-2.5 text-sm font-medium  shadow" href="https://github.com/druvkotwani/Leetcode-Profiles/">⭐</a>
+                                    <a className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border border-gray-600 px-3 ml-1 py-2 text-sm font-medium  shadow" href="https://linkedin.com/in/dhruv-kotwani">
                                         <iconify-icon icon="devicon:linkedin" style={{ color: 'white', }} width="22" height="22"></iconify-icon>
                                     </a>
-                                    <a className="rounded-md bg-[#0e0e0e] text-white hover:bg-gray-600 border border-gray-600 px-3 ml-1 py-2 text-sm font-medium  shadow" href="https://twitter.com/druv_kotwani">
+                                    <a className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border border-gray-600 px-3 ml-1 py-2 text-sm font-medium  shadow" href="https://twitter.com/druv_kotwani">
                                         <iconify-icon icon="fa6-brands:square-x-twitter" style={{ color: 'white', }} width="22" height="22"></iconify-icon>
                                     </a>
                                 </div>
