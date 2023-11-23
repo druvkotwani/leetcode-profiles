@@ -51,7 +51,7 @@ Check out the website: [𝙻𝚎𝚎𝚝𝙲𝚘𝚍𝚎 𝙿𝚛𝚘𝚏𝚒�
 
 4. **Create Database(firestore Database)**
 
-5. **Create a collection with the file format below:**
+5. **Create a collection with the file format below (not necessary):**
 
   
    ### 👇🏽 File Format
