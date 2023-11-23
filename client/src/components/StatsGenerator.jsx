@@ -101,8 +101,22 @@ export default function StatsGenerator({ setShowStats }) {
         });
     }
 
+    function wrongUsername() {
+        toast.warn('I think!! your username is not correct', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
+    }
 
-    const addData = async () => {
+
+    const addData = async (e) => {
+        e.preventDefault();
         try {
             const transformedUserData = transformUserData(userData);
             const dataCollection = collection(firestore, "users_stats")
@@ -120,7 +134,6 @@ export default function StatsGenerator({ setShowStats }) {
             } else {
                 console.log("User data already exists in Firestore.");
                 dataThere()
-
             }
         }
         catch (err) {
@@ -134,14 +147,7 @@ export default function StatsGenerator({ setShowStats }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (userName.trim() !== '') {
-            // Proceed with the action since the input is not empty
-            // Your logic here
-        } else {
-            // Input is empty, show an error message or prevent the action
-            // For now, let's just console log a message
-            console.log('Please enter a username.');
-        }
+
         setLoading(true); // Start loading when fetching data
         // Make an HTTP request to your backend
         axios.get(`https://bakcen.onrender.com/${userName}`)
@@ -151,11 +157,10 @@ export default function StatsGenerator({ setShowStats }) {
                 setLoading(false); // Stop loading after data is fetched
             })
             .catch(error => {
+                wrongUsername()
                 console.error('Error fetching data:', error);
             });
     }
-
-
 
     return (
         <div className="flex justify-center flex-col items-center">
@@ -206,7 +211,7 @@ export default function StatsGenerator({ setShowStats }) {
 
 
             {/* Buttons + Input */}
-            <form className="flex items-center w-80">
+            <form className="flex items-center w-80" onSubmit={addData}>
                 <label htmlFor="simple-search" className="sr-only">Search</label>
                 <div className="relative w-full">
                     <input onChange={handleInputChange} type="text" id="simple-search" className="border border-gray text-sm rounded-lg block shadow w-full pl-3 p-2.5  bg-[#0e0e0e]  border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Enter the username to Generate Stats..." required="" />

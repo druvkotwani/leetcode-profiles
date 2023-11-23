@@ -1,6 +1,21 @@
 import React from 'react'
+import { useState } from 'react'
 
-const Navbar = () => {
+const Navbar = ({ onSearch }) => {
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const handleSearch = (e) => {
+        const query = e.target.value;
+        setSearchQuery(query);
+        onSearch(query);
+    };
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault(); // Prevent form submission
+            onSearch(searchQuery); // Trigger search when Enter is pressed
+        }
+    };
+
     return (
         <div className='sticky top-0 z-50 bg-[#292829] shadow-lg border-b border-[#E0E0E0] overflow-hidden'>
             <div className='mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8  '>
@@ -19,12 +34,13 @@ const Navbar = () => {
 
                         {/* Search Bar */}
                         <div className="hidden sm:block">
-                            <form className="flex items-center w-80">
+                            <div className="flex items-center w-80">
                                 <label htmlFor="simple-search" className="sr-only">Search</label>
                                 <div className="relative w-full">
-                                    <input type="text" id="simple-search" className="border border-gray text-sm rounded-lg block shadow w-full pl-3 p-2.5  bg-[#0e0e0e]  border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Search by Name or Username..." required="" />
+                                    <input type="text" id="simple-search" className="border border-gray text-sm rounded-lg block shadow w-full pl-3 p-2.5  bg-[#0e0e0e]  border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" value={searchQuery}
+                                        onChange={handleSearch} onKeyDown={handleKeyPress} placeholder="Search by Name or Username..." required="" />
                                 </div>
-                            </form>
+                            </div>
                         </div>
 
                         {/* icons */}
@@ -47,12 +63,12 @@ const Navbar = () => {
 
                             {/* Smaller devices */}
                             <div className="sm:hidden flex gap-2">
-                                <form className="items-center flex">
+                                <div className="items-center flex">
                                     <label htmlFor="simple-search" className="sr-only">Search</label>
                                     <div className="relative w-full">
-                                        <input type="text" id="simple-search" className="border border-gray text-sm rounded-lg block w-full pl-3 p-2.5  bg-[#0e0e0e] border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 shadow focus:border-blue-500" placeholder="Search user profile..." required="" />
+                                        <input type="text" id="simple-search" value={searchQuery} className="border border-gray text-sm rounded-lg block w-full pl-3 p-2.5  bg-[#0e0e0e] border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 shadow focus:border-blue-500" onChange={handleSearch} onKeyDown={handleKeyPress} placeholder="Search user profile..." required="" />
                                     </div>
-                                </form>
+                                </div>
                                 <div className='flex'>
                                     <a className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border border-gray-600 px-3 ml-1 py-2.5 text-sm font-medium  shadow" href="https://github.com/druvkotwani/Leetcode-Profiles/">⭐</a>
                                     <a className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border border-gray-600 px-3 ml-1 py-2 text-sm font-medium  shadow" href="https://linkedin.com/in/dhruv-kotwani">
