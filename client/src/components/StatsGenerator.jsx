@@ -7,6 +7,8 @@ import About from "./About";
 import { getDoc, collection, setDoc, doc } from "firebase/firestore";
 import { firestore } from "../firebase";
 import Skeleton from "./Skeleton";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function StatsGenerator({ setShowStats }) {
 
@@ -74,6 +76,32 @@ export default function StatsGenerator({ setShowStats }) {
         return transformedData;
     };
 
+    function dataThere() {
+        toast.error('Oyee! Your profile is already there', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
+    }
+    function dataAdded() {
+        toast.success('Bhadhai ho! Profile added successfully', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
+    }
+
+
     const addData = async () => {
         try {
             const transformedUserData = transformUserData(userData);
@@ -88,15 +116,16 @@ export default function StatsGenerator({ setShowStats }) {
                 // Add the data only if it doesn't exist
                 await setDoc(docRef, transformedUserData);
                 console.log("User data added to Firestore successfully!");
+                dataAdded()
             } else {
                 console.log("User data already exists in Firestore.");
+                dataThere()
+
             }
         }
         catch (err) {
             console.log(err);
         }
-        setShowStats(false)
-
     }
 
     function handleInputChange(e) {
@@ -190,6 +219,18 @@ export default function StatsGenerator({ setShowStats }) {
             <button onClick={() => setShowStats(false)} className="mt-2">
                 <iconify-icon icon="line-md:close-small" width="60" height="60"></iconify-icon>
             </button>
+            <ToastContainer
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
         </div >
 
     )

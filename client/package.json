@@ -13,7 +13,8 @@
     "axios": "^1.6.2",
     "firebase": "^10.6.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-toastify": "^9.1.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
