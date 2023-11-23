@@ -79,7 +79,7 @@ app.get('/:username', async (req, res) => {
         const profileData = {
             fullName,
             username,
-            badgeImg: badgeImg ? `https://leetcode.com${badgeImg}` : undefined,
+            badgeImg: badgeImg ? `${badgeImg}` : undefined,
             rank,
             image: image ? image : undefined,
         };
