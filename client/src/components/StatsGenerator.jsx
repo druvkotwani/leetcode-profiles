@@ -188,7 +188,7 @@ export default function StatsGenerator({ setShowStats }) {
                 <button onClick={addData} className={`${userName.trim() === '' ? 'pointer-events-none opacity-50' : ''} rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border  border-gray-600 px-4 py-2 text-base font-bold shadow`}>Add To HallOfFame</button>
             </div>
             <button onClick={() => setShowStats(false)} className="mt-2">
-                <iconify-icon icon="flat-color-icons:close-up-mode" width="60" height="60"></iconify-icon>
+                <iconify-icon icon="line-md:close-small" width="60" height="60"></iconify-icon>
             </button>
         </div >
 
