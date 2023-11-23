@@ -55,28 +55,26 @@ Check out the website: [𝙻𝚎𝚎𝚝𝙲𝚘𝚍𝚎 𝙿𝚛𝚘𝚏𝚒�
 
   
    ### 👇🏽 File Format
-| Key              | Value                                                                                                                                                                                                                                                      |
-|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| fullName         | This value should be your real name.                                                                                                                                                                                                                        |
-| image            | URL to your profile image.                                                                                                                                                                                                                                  |
-| username         | This value should be your Twitter username (𝕏).                                                                                                                                                                                                             |
-| badgeImg         | URL to your badge image or an empty string if not available.                                                                                                                                                                                                |
-| rank             | Your rank on LeetCode.                                                                                                                                                                                                                                      |
-| easySolved       | Number of easy problems solved on LeetCode.                                                                                                                                                                                                                  |
-| easyTotal        | Total number of easy problems on LeetCode.                                                                                                                                                                                                                  |
-| easyBeats        | Number of easy problems beaten on LeetCode.                                                                                                                                                                                                                 |
-| mediumSolved     | Number of medium problems solved on LeetCode.                                                                                                                                                                                                               |
-| mediumTotal      | Total number of medium problems on LeetCode.                                                                                                                                                                                                                |
-| mediumBeats      | Number of medium problems beaten on LeetCode.|
-| hardSolved       | Number of hard problems solved on LeetCode.|
-| hardTotal        | Total number of hard problems on LeetCode.|
-| hardBeats        | Number of hard problems beaten on LeetCode.|
-| totalSolved      | Total number of problems solved on LeetCode.|
-| totalQuestions   | Total number of questions available on LeetCode.|
-| linkedin         | {link: Link, text: text}|
-| twitter          | {link: Link, text: text}|
-| github           | {link: Link, text: text}|
-| website          | {link: Link, text: text} |
+- `userName(String) = druv_kotwani`
+- `website(Map) = {link: https://dhruvkotwani.me/, text: dhruvkotwani.me}`
+- `badgeImg(String) = https://leetcode.com/static/images/badges/dcc-2023-10.png`
+- `mediumBeats(String) = 85.6%`
+- `easyBeats(String) = 96.9%`
+- `totalQuestions(Number) = 2940`
+- `fullName(String) = Dhruv Kotwani`
+- `github(Map) = {link: https://github.com/druvkotwani, text: druvkotwani}`
+- `image(String) = https://assets.leetcode.com/users/avatars/avatar_1672478903.png`
+- `hardBeats(String) = 77.62`
+- `totalSolved(Number) = 282`
+- `easySolved(String) = 165`
+- `linkedin(Map) = {link: https://linkedin.com/in/dhruv-kotwani, text: dhruv-kotwani}`
+- `rank(String) = 230,203`
+- `easyTotal(String) = 746`
+- `mediumSolved(String) = 97`
+- `hardTotal(String) = 645`
+- `hardSolved(String) = 20`
+- `twitter(Map) = {link: https://twitter.com/druv_kotwani, text: druv_kotwani}`
+- `mediumTotal(String) = 1549`
 
 6. **Replace the firebaseConfig inside firebase.js with your actual apiKeys, and rest of the data**
 7. **Add now you are good to go**
