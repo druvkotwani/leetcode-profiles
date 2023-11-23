@@ -4,13 +4,13 @@ import { getFirestore } from "firebase/firestore"; // Add Firestore module impor
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDQ-_Qp-x7ljcWnzB7jtqkyppO0LxGCYfo",
-    authDomain: "leetcodeprofilesdata.firebaseapp.com",
-    projectId: "leetcodeprofilesdata",
-    storageBucket: "leetcodeprofilesdata.appspot.com",
-    messagingSenderId: "166010246628",
-    appId: "1:166010246628:web:9ec1a07562ce11d09d23f1",
-    measurementId: "G-K62NLZLQ5G"
+    apiKey: import.meta.env.VITE_REACT_APP_apiKey,
+    authDomain: import.meta.env.VITE_REACT_APP_authDomain,
+    projectId: import.meta.env.VITE_REACT_APP_projectId,
+    storageBucket: import.meta.env.VITE_REACT_APP_storageBucket,
+    messagingSenderId: import.meta.env.VITE_REACT_APP_messagingSenderId,
+    appId: import.meta.env.VITE_REACT_APP_appId,
+    measurementId: import.meta.env.VITE_REACT_APP_measurementId
 };
 
 // Initialize Firebase
