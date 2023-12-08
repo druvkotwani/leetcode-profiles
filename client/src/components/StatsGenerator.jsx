@@ -150,7 +150,7 @@ export default function StatsGenerator({ setShowStats }) {
 
         setLoading(true); // Start loading when fetching data
         // Make an HTTP request to your backend
-        axios.get(`https://bakcen.onrender.com/${userName}`)
+        axios.get(`https://leetcode-backend-druvkotwani.vercel.app/${userName}`)
             .then(response => {
                 // Set the received data in state
                 setUserData(response.data);
