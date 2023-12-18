@@ -7,7 +7,9 @@ const cors = require('cors'); // Import the cors package
 const app = express();
 const port = 8000;
 // Use the cors middleware
-app.use(cors());
+app.use(cors({
+    origin: 'https://leetcode-profiles.vercel.app', // Replace with your frontend's domain
+}));
 
 app.get('/:username', async (req, res) => {
     try {
@@ -24,7 +26,12 @@ app.get('/:username', async (req, res) => {
 
         //Profile Data
         const fullName = $('div.text-label-1.break-all.text-base.font-semibold').first().text().trim();
+
         const image = $('div.relative.flex.h-20.w-20.shrink-0 img').attr('src');
+        const imageUrl = $('div.relative.flex.h-20.w-20.shrink-0 img').attr('src');
+        const imageResponse = await axios.get(imageUrl, { responseType: 'arraybuffer' });
+        const imageBuffer = Buffer.from(imageResponse.data, 'binary').toString('base64');
+
         const badgeImg = $('div.ml-1 img').attr('src');
         const rank = $('span.ttext-label-1.font-medium').text();
 
@@ -81,7 +88,7 @@ app.get('/:username', async (req, res) => {
             username,
             badgeImg: badgeImg ? `${badgeImg}` : undefined,
             rank,
-            image: image ? image : undefined,
+            image: `data:image/jpeg;base64,${imageBuffer}`,
         };
 
         const totalQuestions = parseInt(easyTotal) + parseInt(mediumTotal) + parseInt(hardTotal);
