@@ -9,9 +9,9 @@ import { firestore } from "../firebase";
 import Skeleton from "./Skeleton";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import * as htmlToImage from 'html-to-image';
 
 export default function StatsGenerator({ setShowStats }) {
-
     const [userName, setUserName] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -162,12 +162,26 @@ export default function StatsGenerator({ setShowStats }) {
             });
     }
 
+    const downloadAsImage = async () => {
+        const element = document.querySelector('.download');
+
+        try {
+            const imageUrl = await htmlToImage.toPng(element);
+            const a = document.createElement('a');
+            a.href = imageUrl;
+            a.download = 'downloaded_image.png'; // Set the file name
+            a.click();
+            console.log('Image downloaded successfully');
+        } catch (error) {
+            console.error('Error converting div to image:', error);
+        }
+    };
+
     return (
         <div className="flex justify-center flex-col items-center">
 
             {/* Stats */}
-            {loading ? (<Skeleton />) : (<div className="rounded-lg w-[95%] sm:w-[65%] md:w-[50%] lg:w-[35%] xl:w-[30%]  h-[270px] bg-[#292829] mb-5">
-
+            {loading ? (<Skeleton />) : (<div className="download rounded-lg w-[95%] sm:w-[65%] md:w-[50%] lg:w-[35%] xl:w-[30%]  h-[270px] bg-[#292829] mb-5" >
                 <div className="flex items-center justify-around ">
                     <Profile userData={userData.profileData} />
                     <About result={userData.aboutData} />
@@ -205,7 +219,6 @@ export default function StatsGenerator({ setShowStats }) {
                     </div>
                 </div>
 
-
             </div >)
             }
 
@@ -220,6 +233,7 @@ export default function StatsGenerator({ setShowStats }) {
             <div className="flex gap-3 mt-3">
                 <button onClick={handleSubmit} className={`${userName.trim() === '' ? 'pointer-events-none opacity-50' : ''} rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border  border-gray-600 px-4 py-2 text-base font-bold shadow`}>Generate Stats</button>
                 <button onClick={addData} className={`${userName.trim() === '' ? 'pointer-events-none opacity-50' : ''} rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border  border-gray-600 px-4 py-2 text-base font-bold shadow`}>Add To HallOfFame</button>
+                <button onClick={downloadAsImage} disabled={loading}><iconify-icon icon="flat-color-icons:download" style={{ color: 'white', marginRight: '5px' }} width="17" height="19"></iconify-icon></button>
             </div>
             <button onClick={() => setShowStats(false)} className="mt-2">
                 <iconify-icon icon="line-md:close-small" width="60" height="60"></iconify-icon>
