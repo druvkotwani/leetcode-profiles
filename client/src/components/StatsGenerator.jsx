@@ -224,16 +224,19 @@ export default function StatsGenerator({ setShowStats }) {
 
 
             {/* Buttons + Input */}
-            <form className="flex items-center w-80" onSubmit={addData}>
-                <label htmlFor="simple-search" className="sr-only">Search</label>
-                <div className="relative w-full">
-                    <input onChange={handleInputChange} type="text" id="simple-search" className="border border-gray text-sm rounded-lg block shadow w-full pl-3 p-2.5  bg-[#0e0e0e]  border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Enter the username to Generate Stats..." required="" />
-                </div>
-            </form>
+            <div className="flex gap-2">
+                <form className="flex items-center w-80" onSubmit={addData}>
+                    <label htmlFor="simple-search" className="sr-only">Search</label>
+                    <div className="relative w-full">
+                        <input onChange={handleInputChange} type="text" id="simple-search" className="border border-gray text-sm rounded-lg block shadow w-full pl-3 p-2.5  bg-[#0e0e0e]  border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Enter the username to Generate Stats..." required="" />
+                    </div>
+                </form>
+                <button onClick={downloadAsImage} disabled={loading}><iconify-icon icon="flat-color-icons:download" style={{ color: 'white', marginRight: '5px' }} width="25" height="29"></iconify-icon></button>
+            </div>
+
             <div className="flex gap-3 mt-3">
                 <button onClick={handleSubmit} className={`${userName.trim() === '' ? 'pointer-events-none opacity-50' : ''} rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border  border-gray-600 px-4 py-2 text-base font-bold shadow`}>Generate Stats</button>
                 <button onClick={addData} className={`${userName.trim() === '' ? 'pointer-events-none opacity-50' : ''} rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border  border-gray-600 px-4 py-2 text-base font-bold shadow`}>Add To HallOfFame</button>
-                <button onClick={downloadAsImage} disabled={loading}><iconify-icon icon="flat-color-icons:download" style={{ color: 'white', marginRight: '5px' }} width="17" height="19"></iconify-icon></button>
             </div>
             <button onClick={() => setShowStats(false)} className="mt-2">
                 <iconify-icon icon="line-md:close-small" width="60" height="60"></iconify-icon>
