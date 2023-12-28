@@ -1,6 +1,6 @@
 # 𝙻𝚎𝚎𝚝𝙲𝚘𝚍𝚎  𝙿𝚛𝚘𝚏𝚒𝚕𝚎𝚜
 
-𝙰 𝚙𝚕𝚊𝚝𝚏𝚘𝚛𝚖 𝚝𝚘 𝚌𝚛𝚎𝚊𝚝𝚎 𝚢𝚘𝚞𝚛 𝙻𝚎𝚎𝚝𝙲𝚘𝚍𝚎 𝚜𝚝𝚊𝚝𝚒𝚜𝚝𝚒𝚌𝚜 𝚊𝚗𝚍 𝚜𝚑𝚘𝚠𝚌𝚊𝚜𝚎 𝚢𝚘𝚞𝚛 𝙻𝚎𝚎𝚝𝙲𝚘𝚍𝚎 𝚙𝚛𝚘𝚏𝚒𝚕𝚎 𝚐𝚕𝚘𝚋𝚊𝚕𝚕𝚢.
+A platform to create your LeetCode statistics and showcase your LeetCode profile globally.
 
 ![Screenshot 2023-11-23 154638](https://github.com/druvkotwani/Leetcode-Profiles/assets/96691139/9f6bfbb4-c389-4509-9e42-a0d394651180)
 
