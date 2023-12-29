@@ -76,7 +76,7 @@ export default function App() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 }}
                     >
-                      <Stat key={data.username} data={data} />
+                      <Stat key={data.username} data={data} index={index} />
                     </motion.div>
 
                   </>

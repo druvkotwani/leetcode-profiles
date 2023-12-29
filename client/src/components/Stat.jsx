@@ -6,7 +6,7 @@ import About from "./About";
 import { motion } from "framer-motion";
 
 
-export default function Stat({ data }) {
+export default function Stat({ data, index }) {
     const [userData, setUserData] = useState({});
 
     const setDataManually = () => {
@@ -51,31 +51,15 @@ export default function Stat({ data }) {
         }
     }, [data]);
 
-    const random1 = Math.random() * 1;
-    const random2 = Math.random() * 2;
     return (
         <div className="flex justify-center flex-col items-center rounded-lg h-[280px] bg-[#292829]">
             <div>
                 <div className="flex gap-1 xl:gap-4 items-center justify-between ">
                     {/* Profile */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (random1 % 4) * 0.2 }}
-                    >
-                        <Profile userData={userData?.profileData} />
-                    </motion.div>
+                    <Profile userData={userData?.profileData} index={index} />
 
                     {/* About */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (random2 % 4) * 0.2 + 0.2 }}
-                    >
-                        <About result={userData?.aboutData} />
-                    </motion.div>
+                    <About result={userData?.aboutData} index={index} />
                 </div>
                 <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="h-[0.5px] bg-white" />
 
@@ -85,7 +69,7 @@ export default function Stat({ data }) {
                         initial={{ opacity: 0, x: -40 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (random1 % 4) * 0.3 }}
+                        transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 }}
                     >
                         <Circle total={data?.totalSolved} />
                     </motion.div>
@@ -96,7 +80,7 @@ export default function Stat({ data }) {
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (random2 % 4) * 0.4 }}
+                            transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.4 }}
                         >
                             <Questions
                                 type={'Easy'}
@@ -112,7 +96,7 @@ export default function Stat({ data }) {
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (random2 % 4) * 0.3 }}
+                            transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 }}
                         >
                             <Questions
                                 type={'Medium'}
@@ -128,7 +112,7 @@ export default function Stat({ data }) {
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (random2 % 4) * 0.5 }}
+                            transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.5 }}
                         >
                             <Questions
                                 type={'Hard'}
