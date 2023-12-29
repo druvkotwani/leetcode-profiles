@@ -4,6 +4,7 @@ import StatsGenerator from "./components/StatsGenerator";
 import { useEffect, useState } from "react";
 import { collection, getDocs, onSnapshot } from "firebase/firestore";
 import { firestore } from "./firebase";
+import { motion } from "framer-motion";
 
 import "./App.css";
 
@@ -66,8 +67,19 @@ export default function App() {
           <div className="grid grid-cols-1 gap-4 py-4 ">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {
-                filteredData.map(data => (
-                  <Stat key={data.username} data={data} />
+                filteredData.map((data, index) => (
+                  // displaying each stat
+                  <>
+                    <motion.div
+                      initial={{ opacity: 0, x: -50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 }}
+                    >
+                      <Stat key={data.username} data={data} />
+                    </motion.div>
+
+                  </>
                 ))
               }
             </div>
