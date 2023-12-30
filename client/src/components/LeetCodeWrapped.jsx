@@ -68,7 +68,35 @@ const LeetCodeWrapped = () => {
             </div>
 
             {/* Community Stat */}
+            <div className='flex items-center justify-center '>
+                <div className="stats shadow flex sm:flex overflow-hidden  sm:w-[580px]  items-center justify-center rounded-none">
+                    <div className='flex        '>
+                        <div className="stat ">
+                            <div className="stat-figure text-primary">
+                            </div>
+                            <div className="stat-title ">Hey!</div>
+                            <div className="stat-value text-[#FF8866]">Dhruv</div>
+                            <div className="stat-desc">How was your 2023?</div>
+                        </div>
+
+                        <div className="stat ">
+                            <div className="stat-figure text-secondary">
+                                <div className="avatar">
+                                    <div className="w-16 rounded-full">
+                                        <img src="/assets/profile.png" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="stat-value">86%</div>
+                            <div className="stat-title">Questions Done</div>
+                            <div className="stat-desc text-[secondary]">31% Questions remains</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div className="flex sm:flex-col items-center justify-center">
+                {/* Div 2 */}
                 <div className="stats shadow flex sm:flex-col overflow-hidden  items-center justify-center rounded-none">
                     <div className='sm:flex '>
                         <div className="stat">
@@ -98,6 +126,8 @@ const LeetCodeWrapped = () => {
                     </div>
                 </div>
 
+
+                {/* Div 3 */}
                 <div className="stats shadow flex sm:flex-col overflow-hidden  items-center justify-center rounded-none ">
                     <div className='sm:flex '>
                         <div className="stat">
