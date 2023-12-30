@@ -56,3 +56,54 @@
   z-index: 1000; /* Ensure it's above other content */
   backdrop-filter: blur(8px); /* Apply a blur effect */
 }
+
+/* Styles for the LeetCodeAlert */
+@keyframes snowflake-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  12% {
+    transform: rotate(20deg);
+  }
+
+  25% {
+    transform: rotate(-13deg);
+  }
+  37% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+}
+.snow {
+  position: absolute;
+}
+.snow {
+  animation: infinite 6s snowflake-spin;
+  animation-timing-function: ease-in-out;
+  background: linear-gradient(
+    -45deg,
+    rgba(100, 210, 255, 0.52) 0%,
+    #64d2ff 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.snow-sm {
+  font-size: 20px;
+  animation-delay: 0.7s;
+  opacity: 0.8;
+  left: 65px;
+  top: 23px;
+}
+
+.snow-xs {
+  font-size: 14px;
+  animation-delay: 0.3s;
+  opacity: 0.6;
+  left: 50px;
+  top: 9px;
+}

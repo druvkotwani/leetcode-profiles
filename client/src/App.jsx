@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { collection, getDocs, onSnapshot } from "firebase/firestore";
 import { firestore } from "./firebase";
 import { motion } from "framer-motion";
-
+import LeetCodeAlert from "./components/LeetCodeAlert";
 import "./App.css";
 
 export default function App() {
@@ -62,6 +62,7 @@ export default function App() {
             <path fillRule="evenodd" clipRule="evenodd" d="M49.9118 2.02335C52.3173 -0.55232 56.3517 -0.686894 58.9228 1.72277C61.494 4.13244 61.6284 8.17385 59.2229 10.7495L16.4276 56.5729C11.7768 61.552 12.2861 69.5738 17.6453 74.8292L37.4088 94.2091C39.9249 96.6764 39.968 100.72 37.505 103.24C35.042 105.761 31.0056 105.804 28.4895 103.337L8.72593 83.9567C-1.42529 74.0021 -2.43665 58.0741 7.1169 47.8463L49.9118 2.02335Z" fill="white"></path>
           </svg>
         </button>
+        <LeetCodeAlert />
         <Navbar onSearch={handleSearch} />
         <div className="flex flex-col mx-auto max-w-screen-xl px-2 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-4 py-4 ">
