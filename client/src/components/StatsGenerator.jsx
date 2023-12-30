@@ -99,7 +99,6 @@ export default function StatsGenerator({ setShowStats }) {
             progress: undefined,
             theme: "dark",
         });
-        setShowStats(false)
     }
 
     function wrongUsername() {
