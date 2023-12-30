@@ -129,12 +129,15 @@ export default function StatsGenerator({ setShowStats }) {
             if (!docSnapshot.exists()) {
                 // Add the data only if it doesn't exist
                 await setDoc(docRef, transformedUserData);
-                console.log("User data added to Firestore successfully!");
+                // console.log("User data added to Firestore successfully!");
                 dataAdded()
+                setShowStats(false)
             } else {
                 console.log("User data already exists in Firestore.");
                 dataThere()
             }
+
+
         }
         catch (err) {
             console.log(err);
