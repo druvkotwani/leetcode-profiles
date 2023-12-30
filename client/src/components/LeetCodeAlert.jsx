@@ -50,11 +50,11 @@ const Alert = () => {
                     <h1 className="JakartaSans text-white font-bold text-xl sm:text-2xl">
                         <strong className='JakartaSans-bold text-3xl '>2023 </strong>
                         LeetCode Wrap-Up</h1>
-                    <p className="JakartaSans text-gray-200 text-sm hidden sm:block">Review your LeetCode activity from the past year.</p>
+                    <p className="JakartaSans text-gray-200 text-sm hidden sm:block">Review your LeetCode activity from the past year</p>
                 </div>
 
                 <button className="ml-1 btn btn-outline btn-info sm:hidden">✈️</button>
-                <button className="ml-1 btn btn-outline btn-info hidden sm:block">Here✈️</button>
+                <button className="ml-1 btn btn-outline btn-info hidden sm:block">Explore✈️</button>
 
             </div>
         </div >
