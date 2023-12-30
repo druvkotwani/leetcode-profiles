@@ -1,7 +1,17 @@
 import React from 'react'
+import '../index.css'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import Heatmap from './Heatmap';
+import Profile from './Profile';
+import About from './About';
+import Stat from './Stat';
+import data from '../utils/tempdata'
+
+
 const LeetCodeWrapped = () => {
     const [activeButton, setActiveButton] = useState('profile');
+
 
     const handleClick = (button) => {
         if (button !== activeButton) {
@@ -9,7 +19,8 @@ const LeetCodeWrapped = () => {
         }
     };
     return (
-        <>
+        <div className='h-screen w-screen'>
+
             {/* Header*/}
             <div className="flex sm:gap-4 items-center justify-center p-4">
                 {/* SVG */}
@@ -52,46 +63,24 @@ const LeetCodeWrapped = () => {
                     <p className="JakartaSans text-gray-200 text-sm hidden sm:block">Review your LeetCode activity from the past year</p>
                 </div>
             </div>
-
-            {/* Bottom navigation */}
-
-            <div className="btm-nav">
-                <button
-                    className={`text-accent ${activeButton === 'button1' ? 'active' : ''}`}
-                    onClick={() => handleClick('button1')}
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-
-                </button>
-                <button
-                    className={`text-accent ${activeButton === 'profile' ? 'active' : ''}`}
-                    onClick={() => handleClick('profile')}
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-
-                </button>
-                <button
-                    className={`text-accent ${activeButton === 'button2' ? 'active' : ''}`}
-                    onClick={() => handleClick('button2')}
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-
-                </button>
-            </div>
-
             <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="h-[0.5px] bg-white" />
-
-            {/* Profile Card */}
-
-
-
-
-
 
 
             {/* Community Stat */}
-            <div className="flex ">
-                <div className="stats shadow ">
+            <div className=''>
+                <div className="stats shadow flex flex-col sm:flex-row items-center justify-center rounded-none ">
+                    <div className="stat">
+                        <div className="stat-figure text-secondary">
+                            <div className="avatar">
+                                <div className="w-16 rounded-full">
+                                    <img src="/assets/profile.png" />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="stat-value">86%</div>
+                        <div className="stat-title">Tasks done</div>
+                        <div className="stat-desc text-secondary">31 tasks remaining</div>
+                    </div>
                     <div className="stat">
                         <div className="stat-figure text-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
@@ -118,7 +107,47 @@ const LeetCodeWrapped = () => {
                     </div>
                 </div>
             </div>
-        </>
+
+            {/* Bottom navigation */}
+            <div className="btm-nav bg-inherit">
+
+                <Link to="/" >
+                    <button
+                        className={`text-accent flex gap-1 ${activeButton === 'button1' ? 'active' : ''}`}
+                        onClick={() => handleClick('button1')}>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                        <span className='hidden sm:block'>Home</span>
+                    </button>
+                </Link>
+
+                <button
+                    className={`text-accent bg-inherit   ${activeButton === 'profile' ? 'active' : ''}`}
+                    onClick={() => handleClick('profile')}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </button>
+
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/druvkotwani/Leetcode-Profiles/">
+                    <button className={`text-accent flex gap-1  ${activeButton === 'button2' ? 'active' : ''}`} onClick={() => handleClick('button2')}>
+                        <svg
+                            width="22px"
+                            height="22px"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M11.2691 4.41115C11.5006 3.89177 11.6164 3.63208 11.7776 3.55211C11.9176 3.48263 12.082 3.48263 12.222 3.55211C12.3832 3.63208 12.499 3.89177 12.7305 4.41115L14.5745 8.54808C14.643 8.70162 14.6772 8.77839 14.7302 8.83718C14.777 8.8892 14.8343 8.93081 14.8982 8.95929C14.9705 8.99149 15.0541 9.00031 15.2213 9.01795L19.7256 9.49336C20.2911 9.55304 20.5738 9.58288 20.6997 9.71147C20.809 9.82316 20.8598 9.97956 20.837 10.1342C20.8108 10.3122 20.5996 10.5025 20.1772 10.8832L16.8125 13.9154C16.6877 14.0279 16.6252 14.0842 16.5857 14.1527C16.5507 14.2134 16.5288 14.2807 16.5215 14.3503C16.5132 14.429 16.5306 14.5112 16.5655 14.6757L17.5053 19.1064C17.6233 19.6627 17.6823 19.9408 17.5989 20.1002C17.5264 20.2388 17.3934 20.3354 17.2393 20.3615C17.0619 20.3915 16.8156 20.2495 16.323 19.9654L12.3995 17.7024C12.2539 17.6184 12.1811 17.5765 12.1037 17.56C12.0352 17.5455 11.9644 17.5455 11.8959 17.56C11.8185 17.5765 11.7457 17.6184 11.6001 17.7024L7.67662 19.9654C7.18404 20.2495 6.93775 20.3915 6.76034 20.3615C6.60623 20.3354 6.47319 20.2388 6.40075 20.1002C6.31736 19.9408 6.37635 19.6627 6.49434 19.1064L7.4341 14.6757C7.46898 14.5112 7.48642 14.429 7.47814 14.3503C7.47081 14.2807 7.44894 14.2134 7.41394 14.1527C7.37439 14.0842 7.31195 14.0279 7.18708 13.9154L3.82246 10.8832C3.40005 10.5025 3.18884 10.3122 3.16258 10.1342C3.13978 9.97956 3.19059 9.82316 3.29993 9.71147C3.42581 9.58288 3.70856 9.55304 4.27406 9.49336L8.77835 9.01795C8.94553 9.00031 9.02911 8.99149 9.10139 8.95929C9.16534 8.93081 9.2226 8.8892 9.26946 8.83718C9.32241 8.77839 9.35663 8.70162 9.42508 8.54808L11.2691 4.41115Z"
+                                stroke="#00CDB7"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            ></path>
+                        </svg>
+                        <span className='hidden sm:block'>Contribute</span>
+                    </button>
+                </a>
+            </div >
+        </div>
     )
 }
 
