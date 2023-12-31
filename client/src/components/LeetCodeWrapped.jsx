@@ -59,7 +59,7 @@ const LeetCodeWrapped = () => {
 
         setLoading(true); // Start loading when fetching data
         // Make an HTTP request to your backend
-        axios.get(`/api/${userName}`)
+        axios.get(`https://leetcode-wrapped-api.vercel.app/${userName}`)
             .then(response => {
                 // Set the received data in state
                 setUserData(response.data);
