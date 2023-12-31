@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.6.2",
+    "axios": "^1.6.3",
     "dotenv": "^16.3.1",
     "firebase": "^10.6.0",
     "framer-motion": "^10.16.16",
