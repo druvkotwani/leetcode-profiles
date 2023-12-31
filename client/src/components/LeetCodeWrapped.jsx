@@ -123,7 +123,7 @@ const LeetCodeWrapped = () => {
 
             <div className=' flex items-center justify-center'>
                 <input onChange={handleInputChange} type="text" placeholder="Generate Your LeetCode-Wrap" className="my-2 w-[250px] input input-bordered input-warning " />
-                <button disabled={loading} onClick={handleSubmit} className="btn btn-outline btn-accent ml-3">Generate</button>
+                <button disabled={loading} onClick={handleSubmit} className={`${userName.trim() === '' ? 'pointer-events-none opacity-50' : ''}btn btn-outline btn-accent ml-3`}>Generate</button>
             </div>
 
             {/* Community Stat */}
