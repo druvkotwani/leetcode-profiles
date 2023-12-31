@@ -1,10 +1,8 @@
-import React from 'react'
 import '../index.css'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
-import Skeleton from './Skeleton';
 import SkeletonWrapped from './SkeletonWrapped';
 
 
