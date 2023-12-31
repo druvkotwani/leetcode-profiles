@@ -6,7 +6,6 @@ import axios from "axios";
 import SkeletonWrapped from './SkeletonWrapped';
 
 
-
 const LeetCodeWrapped = () => {
 
     const [activeButton, setActiveButton] = useState('profile');
@@ -27,7 +26,6 @@ const LeetCodeWrapped = () => {
     }
 
     const [userData, setUserData] = useState(tempData);
-    console.log(userData)
     const [userName, setUserName] = useState('');
     const [loading, setLoading] = useState(false);
 
