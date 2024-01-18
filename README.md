@@ -10,7 +10,7 @@ A platform to create your LeetCode statistics and showcase your LeetCode profile
 ## Languages/Tools
 
 <a href="">
-    <img src="https://skillicons.dev/icons?i=tailwindcss,js,react,firebase,vercel" />
+    <img src="https://skillicons.dev/icons?i=tailwindcss,js,react,firebase,nodejs,vercel" />
   </a>
 
 ## 👩🏽‍💻 Demo
