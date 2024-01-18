@@ -106,11 +106,11 @@ const LeetCodeWrapped = () => {
 
                 {/* Text */}
                 <div className="flex flex-col justify-center">
-                    <h1 className="JakartaSans text-white font-bold text-xl sm:text-2xl">
-                        <strong className='JakartaSans-bold text-3xl sm:text-4xl  '>2023 </strong>
+                    <h1 className="nunito text-white font-bold text-xl sm:text-2xl">
+                        <strong className='nunito-bold text-3xl sm:text-4xl  '>2023 </strong>
                         <br className="sm:hidden" />
-                        LeetCode Wrap-Up</h1>
-                    <p className="JakartaSans text-gray-200 text-sm hidden sm:block">Review your LeetCode activity from the past year</p>
+                        LeetCode <span className='text-blue-400    cedarville'>Wrap-Up</span></h1>
+                    <p className="nunito text-gray-200 text-base  hidden sm:block">Review your LeetCode activity from the past year</p>
                 </div>
             </div>
             <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="h-[0.5px] bg-white" />
