@@ -1,8 +1,15 @@
 import { motion } from 'framer-motion'
 const About = ({ result, index }) => {
     const random = Math.floor(Math.random() * 1)
+
+    function truncateText(text, maxLength) {
+        if (text && text.length > maxLength) {
+            return text.substring(0, maxLength) + '...';
+        }
+        return text;
+    }
     return (
-        <div className="mt-4 mb-2 justify-self-start">
+        <div className="mt-4 mb-2 flex flex-col justify-self-start">
 
             {/* <p className="flex">
                 <iconify-icon icon="carbon:location" width="17" height="19" style={{ color: 'white', marginRight: '5px' }}></iconify-icon>
@@ -10,6 +17,8 @@ const About = ({ result, index }) => {
             </p> */}
             {
                 result?.website?.link && (<motion.div
+                    className='tooltip tooltip-top tooltip-rounded'
+                    data-tip={result?.website?.text}
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -26,6 +35,8 @@ const About = ({ result, index }) => {
             {
                 result?.github?.link && (
                     <motion.div
+                        className='tooltip tooltip-right tooltip-rounded'
+                        data-tip={result?.github?.text}
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -41,6 +52,8 @@ const About = ({ result, index }) => {
             {
                 result?.twitter?.link && (
                     <motion.div
+                        className='tooltip tooltip-left tooltip-rounded'
+                        data-tip={result?.twitter?.text}
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -57,6 +70,8 @@ const About = ({ result, index }) => {
             {
                 result?.linkedin?.link && (
                     <motion.div
+                        data-tip={result?.linkedin?.text}
+                        className='tooltip tooltip-bottom tooltip-rounded'
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -65,7 +80,7 @@ const About = ({ result, index }) => {
                         <a target="_blank" rel='noreferrer' href={result?.linkedin?.link} className="flex">
                             <iconify-icon icon="devicon:linkedin" style={{ color: 'white', marginRight: '5px' }} width="17" height="19  "></iconify-icon>
                             <span className='text-sm text-[#BDBEC3] '>
-                                <p className="">{result?.linkedin?.text}</p>
+                                <p className="">{truncateText(result?.linkedin?.text, 13)}</p>
                             </span>
                         </a>
                     </motion.div>)

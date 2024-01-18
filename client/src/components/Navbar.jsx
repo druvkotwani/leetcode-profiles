@@ -49,6 +49,10 @@ const Navbar = ({ onSearch }) => {
                                 {/* <a target="_blank" rel="noopener noreferrer" className="rounded-md bg-[#0e0e0e] text-white hover:bg-gray-600 border hidden sm:block border-gray-600 px-3 py-2 text-sm font-bold shadow" href="https://dhruvkotwani.me/">
                                 <iconify-icon icon="streamline-emojis:globe-showing-americas" style={{ color: 'white', }} width="22" height="22"></iconify-icon>
                             </a> */}
+
+                                <a target="_blank" rel="noopener noreferrer" className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border hidden sm:block border-gray-600 px-3 py-2 text-sm font-bold shadow" href="https://dhruvkotwani.me">
+                                    <iconify-icon icon="streamline-emojis:globe-showing-americas" style={{ color: 'white', }} width="22" height="22"></iconify-icon>
+                                </a>
                                 <a target="_blank" rel="noopener noreferrer" className="rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border hidden sm:block border-gray-600 px-3 py-2 text-sm font-bold shadow" href="https://linkedin.com/in/dhruv-kotwani">
                                     <iconify-icon icon="devicon:linkedin" style={{ color: 'white', }} width="22" height="22"></iconify-icon>
                                 </a>
