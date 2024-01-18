@@ -27,7 +27,7 @@ const About = ({ result, index }) => {
                     <a target="_blank" rel='noreferrer' href={result?.website?.link} className="flex">
                         <iconify-icon icon="streamline-emojis:globe-showing-americas" style={{ color: 'white', marginRight: '1px' }} width="19" height="19"></iconify-icon>
                         <span className='text-sm text-[#BDBEC3] '>
-                            <p className="">{result?.website?.text}</p>
+                            <p className="">{truncateText(result?.website?.text, 13)}</p>
                         </span>
                     </a>
                 </motion.div>)
@@ -44,7 +44,7 @@ const About = ({ result, index }) => {
                     ><a target="_blank" rel='noreferrer' href={result?.github?.link} className="flex">
                             <iconify-icon icon="mdi:github" style={{ color: 'white', marginRight: '5px' }} width="17" height="19"></iconify-icon>
                             <span className='text-sm text-[#BDBEC3] '>
-                                <p className="">{result?.github?.text}</p>
+                                <p className="">{truncateText(result?.github?.text, 13)}</p>
                             </span>
                         </a>
                     </motion.div>)
@@ -62,7 +62,7 @@ const About = ({ result, index }) => {
                         <a target="_blank" rel='noreferrer' href={result?.twitter?.link} className="flex">
                             <iconify-icon icon="fa6-brands:square-x-twitter" style={{ color: 'white', marginRight: '5px' }} width="17" height="19"></iconify-icon>
                             <span className='text-sm text-[#BDBEC3] '>
-                                <p className="">{result?.twitter?.text}</p>
+                                <p className="">{truncateText(result?.twitter?.text, 13)}</p>
                             </span>
                         </a>
                     </motion.div>)
