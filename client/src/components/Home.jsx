@@ -12,6 +12,7 @@ export default function Home() {
     const [showStats, setShowStats] = useState(false);
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const getContacts = async () => {
@@ -21,11 +22,15 @@ export default function Home() {
                     const dataList = snapshot.docs.map((doc) => doc.data());
                     setData(dataList);
                     setFilteredData(dataList);
+                    setLoading(false); // Set loading to false once data is fetched
+
                 });
                 // Return a cleanup function to unsubscribe from the snapshot listener when the component unmounts
                 return () => unsubscribe();
             } catch (error) {
                 console.log(error);
+                setLoading(false); // Set loading to false in case of an error
+
             }
         };
 
@@ -67,22 +72,25 @@ export default function Home() {
                 <div className="flex flex-col mx-auto max-w-screen-xl px-2 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 gap-4 py-4 ">
                         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                            {
-                                filteredData.map((data, index) => (
-                                    // displaying each stat
-                                    <>
+                            {loading ? (
+                                <p className="grid place-content-center">Loading...</p>
+                            ) : (
+                                filteredData.length === 0 ? (
+                                    <p className="grid place-content-center ">No user found</p>
+                                ) : (
+                                    filteredData.map((data, index) => (
                                         <motion.div
+                                            key={data.username}
                                             initial={{ opacity: 0, x: -50 }}
                                             whileInView={{ opacity: 1, x: 0 }}
                                             viewport={{ once: true }}
                                             transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 }}
                                         >
-                                            <Stat key={data.username} data={data} index={index} />
+                                            <Stat data={data} index={index} />
                                         </motion.div>
-
-                                    </>
-                                ))
-                            }
+                                    ))
+                                )
+                            )}
                         </div>
                     </div>
                 </div>
