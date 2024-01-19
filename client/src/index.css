@@ -37,3 +37,17 @@ body {
   font-family: "Cedarville Cursive", cursive;
   font-weight: 400; /* Bold style */
 }
+
+:root {
+  --green-10: #004d1b;
+  --green-20: #016620;
+  --green-30: #078029;
+  --green-40: #109932;
+  --green-50: #1cb33d;
+  --green-60: #28c244;
+  --green-70: #51d164;
+  --green-80: #7fe18b;
+  --green-90: #b3f0b8;
+  --green-100: #d8ffda;
+  --fill-tertiary: #393939;
+}
