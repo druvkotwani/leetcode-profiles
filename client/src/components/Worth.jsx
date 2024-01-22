@@ -33,9 +33,9 @@ const Worth = () => {
                     Estimate your worth in <span className=' text-3xl sm:text-4xl text-yellow-400 cedarville'>LeetCode</span>!
                 </h1>
                 <form onSubmit={(e) => { console.log(userName); e.preventDefault(); setLoading(true) }} className="flex flex-col justify-center items-center gap-4 p-4">
-                    <input type="text" placeholder="Enter your LeetCode username" className="border-2     border-gray-300 text-white rounded-md p-2 w-80 sm:w-96" onChange={handleInputChange} />
+                    <input type="text" placeholder="Enter your LeetCode username" className="border-2 focus:border-yellow-500 focus:outline-none focus:ring focus:ring-yellow-200     border-gray-300 text-white rounded-md p-2 w-80 sm:w-96" onChange={handleInputChange} />
 
-                    <button className="flex items-center justify-center gap-2  bg-yellow-500 text-white font-[poppins] font-medium text-sm sm:text-base rounded-md p-2 w-40 sm:w-46">
+                    <button disabled={loading} className={`${userName.trim() === '' ? 'pointer-events-none opacity-50 flex items-center justify-center gap-2' : ''}flex items-center justify-center gap-2  bg-yellow-500 text-white font-[poppins] font-medium text-sm sm:text-base rounded-md p-2 w-40 sm:w-46`} >
                         {
                             loading ?
                                 <svg className="animate-spin h-5 w-5 " viewBox="0 0 24 24">
