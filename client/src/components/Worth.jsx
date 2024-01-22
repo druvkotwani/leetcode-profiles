@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
+import About from './About'
+import data from '../utils/tempdata'
+import Profile from './Profile'
+import SvgData from '../utils/svgData'
 
 const Worth = () => {
     const [userName, setUserName] = useState('')
     const [loading, setLoading] = useState(false)
+    const amount = Math.floor(Math.random() * 1000) + 1000;
     function handleInputChange(e) {
         setUserName(e.target.value)
     }
@@ -27,7 +32,7 @@ const Worth = () => {
             </div>
             <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="h-[0.5px] bg-white" />
 
-            {/* Body */}
+            {/* Input */}
             <div>
                 <h1 className="font-[poppins] text-white font-light    text-xl sm:text-3xl text-center mt-4">
                     Estimate your worth in <span className=' text-3xl sm:text-4xl text-yellow-400 cedarville'>LeetCode</span>!
@@ -50,6 +55,43 @@ const Worth = () => {
                         }
                     </button>
                 </form>
+            </div>
+
+            {/* Body */}
+            <div className=' flex items-center justify-center'>
+                <div className='p-4 border mt-8 rounded w-11/12   sm:w-5/12 '>
+
+                    <div className='flex items-center justify-center gap-2'>
+                        <p className='text-white font-[poppins] font-medium text-xl sm:text-2xl'>Your Worth: </p>
+                        <h1 className='flex justify-center items-center font-[poppins] font-medium text-xl sm:text-2xl text-yellow-300'>
+                            <iconify-icon icon="noto:heavy-dollar-sign"></iconify-icon>
+                            {amount}</h1>
+                    </div>
+
+                    <div className='flex items-center justify-around sm:justify-center gap-4'>
+                        <Profile userData={data} />
+                        <About result={data} />
+                    </div>
+
+                    <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="h-[0.5px] bg-white" />
+
+
+                    <div className='w-full flex flex-wrap my-4'>
+                        {SvgData}
+                    </div>
+                    <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="h-[0.5px] bg-white" />
+
+
+                    <div>
+                        <p className=' font-[poppins] font-medium text-xs sm:text-base text-center mt-4 text-gray-400'>Get yours:
+                            <span className='text-gray-200'> leetcode-profiles.vercel.app</span>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
             </div>
         </div >
 

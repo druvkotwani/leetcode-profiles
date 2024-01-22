@@ -35,7 +35,7 @@ const About = ({ result, index }) => {
             {
                 result?.github?.link && (
                     <motion.div
-                        className='tooltip tooltip-right tooltip-rounded'
+                        className='tooltip tooltip-left tooltip-rounded'
                         data-tip={result?.github?.text}
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
