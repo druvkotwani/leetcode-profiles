@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
 import SkeletonWrapped from './SkeletonWrapped';
-
+import SvgData from '../utils/svgData'
 
 const LeetCodeWrapped = () => {
 
@@ -23,6 +23,7 @@ const LeetCodeWrapped = () => {
         maxStreak: "62",
         questionsDone: 9,
         questionsRemain: 91,
+        svgHtml: SvgData
     }
 
     const [userData, setUserData] = useState(tempData);
@@ -268,6 +269,14 @@ const LeetCodeWrapped = () => {
                                     </div>
                                 </div>
                             </div>
+
+                            {/* Div 4 */}
+                            {/* <div className='md:flex  h-auto w-full flex-1 items-center justify-center'>
+                                {
+                                    userData?.svgHtml
+                                    // <div dangerouslySetInnerHTML={{ __html: userData?.svgHtml }} />
+                                }
+                            </div> */}
                         </div>
                     </>
             }
