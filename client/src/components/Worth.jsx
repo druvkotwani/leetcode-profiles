@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Worth = () => {
+    const [userName, setUserName] = useState('')
+    const [loading, setLoading] = useState(false)
+    function handleInputChange(e) {
+        setUserName(e.target.value)
+    }
     return (
         <div className='h-screen w-screen'>
             {/* Header*/}
@@ -21,7 +26,32 @@ const Worth = () => {
                 </div>
             </div>
             <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="h-[0.5px] bg-white" />
-        </div>
+
+            {/* Body */}
+            <div>
+                <h1 className="font-[poppins] text-white font-light    text-xl sm:text-3xl text-center mt-4">
+                    Find Out How Much You Earned!
+                </h1>
+                <form onSubmit={(e) => { console.log(userName); e.preventDefault(); setLoading(true) }} className="flex flex-col justify-center items-center gap-4 p-4">
+                    <input type="text" placeholder="Enter your LeetCode username" className="border-2     border-gray-300 text-white rounded-md p-2 w-80 sm:w-96" onChange={handleInputChange} />
+                    <button className="flex items-center justify-center gap-2  bg-yellow-500 text-white font-[poppins] font-medium text-sm sm:text-base rounded-md p-2 w-40 sm:w-46">
+                        {
+                            loading ?
+                                <svg className="animate-spin h-5 w-5 " viewBox="0 0 24 24">
+                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="white" strokeWidth="4" />
+                                    <path className="opacity-75" fill="white" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                                </svg>
+                                :
+                                (<iconify-icon icon="noto-v1:money-with-wings" width='20' height='20' ></iconify-icon>)
+                        }
+                        {
+                            loading ? 'Calculating' : 'Calculate'
+                        }
+                    </button>
+                </form>
+            </div>
+        </div >
+
     )
 }
 
