@@ -3,16 +3,17 @@ import About from './About'
 import data from '../utils/tempdata'
 import Profile from './Profile'
 import SvgData from '../utils/svgData'
+import Questions from './Questions'
 
 const Worth = () => {
     const [userName, setUserName] = useState('')
     const [loading, setLoading] = useState(false)
-    const amount = Math.floor(Math.random() * 1000) + 1000;
+    const amount = ((Math.random() * 1000) + 1000).toFixed(1)
     function handleInputChange(e) {
         setUserName(e.target.value)
     }
     return (
-        <div className='h-screen w-screen'>
+        <div className='h-full w-screen'>
             {/* Header*/}
             <div className="flex gap-2 sm:gap-4 items-center justify-center p-4 ">
                 {/* icon */}
@@ -62,8 +63,8 @@ const Worth = () => {
                 <div className='p-4 border mt-8 rounded w-11/12   sm:w-5/12 '>
 
                     <div className='flex items-center justify-center gap-2'>
-                        <p className='text-white font-[poppins] font-medium text-xl sm:text-2xl'>Your Worth: </p>
-                        <h1 className='flex justify-center items-center font-[poppins] font-medium text-xl sm:text-2xl text-yellow-300'>
+                        <p className='text-white font-[poppins] font-medium text-base  sm:text-lg'>Your Worth: </p>
+                        <h1 className='flex justify-center items-center font-[poppins] font-medium text-2xl sm:text-2xl text-yellow-300'>
                             <iconify-icon icon="noto:heavy-dollar-sign"></iconify-icon>
                             {amount}</h1>
                     </div>
@@ -77,6 +78,24 @@ const Worth = () => {
 
 
                     <div className='w-full flex flex-wrap my-4 justify-center items-center'>
+                        <div className="flex justify-center text-center mb-2">
+                            <div className="text-xs sm:text-base pr-3 sm:px-4 border-r">
+                                <p>990</p>
+                                <p className="text-[10px] sm:text-xs text-gray-500">Total Submissions</p>
+                            </div>
+                            <div className="text-xs sm:text-base px-3 sm:px-4">
+                                <p>1442</p>
+                                <p className="text-[10px] sm:text-xs text-gray-500">Contest Rating</p>
+                            </div>
+                            <div className="hidden sm:block text-xs sm:text-base pl-3 sm:px-4 border-l">
+                                <p>62.1%</p>
+                                <p className="text-[10px] sm:text-xs text-gray-500">Top</p>
+                            </div>
+                            <div className="text-xs sm:text-base pl-3 sm:px-4 border-l">
+                                <p>9%</p>
+                                <p className="text-[10px] sm:text-xs text-gray-500">Questions Solved</p>
+                            </div>
+                        </div>
                         {SvgData}
                     </div>
                     <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="h-[0.5px] bg-white" />
@@ -93,7 +112,7 @@ const Worth = () => {
 
                 </div>
 
-                <button className='flex items-center justify-center gap-2 bg-yellow-500 text-white font-[poppins] font-medium text-sm sm:text-base rounded-md p-2 w-50 sm:w-56 mt-4'>
+                <button className='flex items-center justify-center gap-2 bg-yellow-500 text-white font-[poppins] font-medium text-sm sm:text-base rounded-md p-2 w-50 sm:w-56 my-4'>
                     Download as Image
                     <iconify-icon icon="mdi:download" width='20' height='20' ></iconify-icon>
                 </button>
