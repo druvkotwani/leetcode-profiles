@@ -1,4 +1,4 @@
-const SvgData = <svg viewBox="0 0 799.3 104.64" width="703">
+const SvgData = <svg viewBox="0 0 799.3 104.64" >
     <g x="0" y="0" className="month 1">
         <g x="0" y="0" className="week 1">
             <rect x="0" y="0" width="8.86" height="8.86" fill="transparent" rx="2" ry="2"></rect>
