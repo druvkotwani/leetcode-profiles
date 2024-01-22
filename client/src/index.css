@@ -51,3 +51,18 @@ body {
   --green-100: #d8ffda;
   --fill-tertiary: #393939;
 }
+
+.glowing-icon {
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 10px gold);
+    opacity: 0.8;
+  }
+  to {
+    filter: drop-shadow(0 0 20px gold);
+    opacity: 1;
+  }
+}
