@@ -58,7 +58,7 @@ const Worth = () => {
             </div>
 
             {/* Body */}
-            <div className=' flex items-center justify-center'>
+            <div className=' flex items-center justify-center flex-col'>
                 <div className='p-4 border mt-8 rounded w-11/12   sm:w-5/12 '>
 
                     <div className='flex items-center justify-center gap-2'>
@@ -76,7 +76,7 @@ const Worth = () => {
                     <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="h-[0.5px] bg-white" />
 
 
-                    <div className='w-full flex flex-wrap my-4'>
+                    <div className='w-full flex flex-wrap my-4 justify-center items-center'>
                         {SvgData}
                     </div>
                     <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="h-[0.5px] bg-white" />
@@ -84,15 +84,24 @@ const Worth = () => {
 
                     <div>
                         <p className=' font-[poppins] font-medium text-xs sm:text-base text-center mt-4 text-gray-400'>Get yours:
-                            <span className='text-gray-200'> leetcode-profiles.vercel.app</span>
+                            <span className='text-gray-200'>
+                                <a href='leetcode-profiles.vercel.app' target='_blank' rel='noreferrer' className=''> leetcode-profiles.vercel.app</a>
+                            </span>
                         </p>
 
                     </div>
 
                 </div>
 
+                <button className='flex items-center justify-center gap-2 bg-yellow-500 text-white font-[poppins] font-medium text-sm sm:text-base rounded-md p-2 w-50 sm:w-56 mt-4'>
+                    Download as Image
+                    <iconify-icon icon="mdi:download" width='20' height='20' ></iconify-icon>
+                </button>
 
             </div>
+
+
+
         </div >
 
     )
