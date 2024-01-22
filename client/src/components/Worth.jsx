@@ -30,10 +30,11 @@ const Worth = () => {
             {/* Body */}
             <div>
                 <h1 className="font-[poppins] text-white font-light    text-xl sm:text-3xl text-center mt-4">
-                    Find Out How Much You Earned!
+                    Estimate your worth in <span className=' text-3xl sm:text-4xl text-yellow-400 cedarville'>LeetCode</span>!
                 </h1>
                 <form onSubmit={(e) => { console.log(userName); e.preventDefault(); setLoading(true) }} className="flex flex-col justify-center items-center gap-4 p-4">
                     <input type="text" placeholder="Enter your LeetCode username" className="border-2     border-gray-300 text-white rounded-md p-2 w-80 sm:w-96" onChange={handleInputChange} />
+
                     <button className="flex items-center justify-center gap-2  bg-yellow-500 text-white font-[poppins] font-medium text-sm sm:text-base rounded-md p-2 w-40 sm:w-46">
                         {
                             loading ?
