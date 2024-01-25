@@ -2,7 +2,7 @@ import Questions from "./Questions";
 import Circle from "./Circle";
 import { useState, useEffect } from "react";
 import Profile from "./Profile";
-import About from "./About";
+import SocialLinks from "./Profile/SocialLinks";
 import { motion } from "framer-motion";
 
 
@@ -59,7 +59,7 @@ export default function Stat({ data, index }) {
                     <Profile userData={userData?.profileData} index={index} />
 
                     {/* About */}
-                    <About result={userData?.aboutData} index={index} />
+                    <SocialLinks result={userData?.aboutData} index={index} />
                 </div>
                 <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="h-[0.5px] bg-white" />
 

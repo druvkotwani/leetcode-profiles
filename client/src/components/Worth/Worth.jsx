@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import About from '../About'
+import About from '../Profile/SocialLinks'
 import data from '../../utils/tempdata'
 import Profile from '../Profile'
 import SvgData from '../../utils/svgData'
@@ -80,7 +80,7 @@ const Worth = () => {
 
                     <div className='flex items-center justify-around sm:justify-center gap-4'>
                         <Profile userData={data} />
-                        <About result={data} />
+                        <SocialLinks result={data} />
                     </div>
 
                     <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="h-[0.5px] bg-white" />

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-const About = ({ result, index }) => {
+const SocialLinks = ({ result, index }) => {
     const random = Math.floor(Math.random() * 1)
 
     function truncateText(text, maxLength) {
@@ -89,4 +89,4 @@ const About = ({ result, index }) => {
     )
 }
 
-export default About
+export default SocialLinks
