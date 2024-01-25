@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar";
+import Navbar from "./Navbar/Navbar";
 import Stat from "../components/Stat";
 import StatsGenerator from "../components/StatsGenerator";
 import { useEffect, useState } from "react";
