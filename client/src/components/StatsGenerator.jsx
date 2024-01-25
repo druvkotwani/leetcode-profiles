@@ -1,4 +1,4 @@
-import Questions from "./Questions";
+import Questions from "./Profile/Circle&Questions/Questions";
 import Circle from "./Circle";
 import { useState } from "react";
 import axios from "axios";
