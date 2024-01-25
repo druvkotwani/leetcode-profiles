@@ -1,5 +1,5 @@
 import Questions from "./Profile/Circle&Questions/Questions";
-import Circle from "./Circle";
+import Circle from "./Profile/Circle&Questions/Circle";
 import { useState, useEffect } from "react";
 import Profile from "./Profile/About/Profile";
 import SocialLinks from "./Profile/About/SocialLinks";
