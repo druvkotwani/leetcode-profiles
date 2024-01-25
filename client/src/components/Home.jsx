@@ -59,7 +59,7 @@ export default function Home() {
 
     return (
         <>
-            <div className="h-screen overflow-x-hidden nunito">
+            <div className="overflow-x-hidden nunito">
                 <button onClick={() => setShowStats(prevShowStats => !prevShowStats)}
                     className="transform transition-transform duration-300 hover:scale-125  z-50 fixed w-12 h-12 bottom-0 right-0 lg:right-3 m-4 sm:mr-6 lg:mr-4 rounded-md bg-[#0e0e0e] text-white hover:bg-[#292829] border border-gray-600 px-3 py-2 text-sm font-bold shadow-white animated-button">
                     <svg width="95" height="111" viewBox="0 0 95 111" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-auto max-w-none">
