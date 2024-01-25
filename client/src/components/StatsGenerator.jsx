@@ -1,12 +1,12 @@
-import Questions from "./Questions";
-import Circle from "./Circle";
+import Questions from "./Profile/Circle&Questions/Questions";
+import Circle from "./Profile/Circle&Questions/Circle";
 import { useState } from "react";
 import axios from "axios";
-import Profile from "./Profile";
-import About from "./About";
+import Profile from "./Profile/About/Profile";
+import SocialLinks from "./Profile/About/SocialLinks";
 import { getDoc, collection, setDoc, doc } from "firebase/firestore";
 import { firestore } from "../firebase";
-import Skeleton from "./Skeleton";
+import Skeleton from "./Skeletons/Skeleton";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import * as htmlToImage from 'html-to-image';
@@ -187,7 +187,7 @@ export default function StatsGenerator({ setShowStats }) {
             {loading ? (<Skeleton />) : (<div className="download rounded-lg w-[95%] sm:w-[65%] md:w-[50%] lg:w-[35%] xl:w-[30%]  h-[270px] bg-[#292829] mb-5" >
                 <div className="flex items-center justify-around ">
                     <Profile userData={userData.profileData} />
-                    <About result={userData.aboutData} />
+                    <SocialLinks result={userData.aboutData} />
                 </div>
 
                 <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="" />

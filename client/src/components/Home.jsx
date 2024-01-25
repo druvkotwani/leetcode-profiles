@@ -1,14 +1,13 @@
-import Navbar from "../components/Navbar";
+import Navbar from "./Navbar/Navbar";
 import Stat from "../components/Stat";
 import StatsGenerator from "../components/StatsGenerator";
 import { useEffect, useState } from "react";
 import { collection, getDocs, onSnapshot } from "firebase/firestore";
 import { firestore } from "../firebase";
 import { motion } from "framer-motion";
-import LeetCodeAlert from "../components/LeetCodeAlert";
 import "../App.css";
-import WorthAlert from "./WorthAlert";
-import Skeleton from "./Skeleton";
+import WorthAlert from "./Worth/WorthAlert";
+import Skeleton from "./Skeletons/Skeleton";
 
 export default function Home() {
     const [showStats, setShowStats] = useState(false);

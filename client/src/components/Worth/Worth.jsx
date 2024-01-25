@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import About from './About'
-import data from '../utils/tempdata'
-import Profile from './Profile'
-import SvgData from '../utils/svgData'
+import About from '../Profile/About/SocialLinks'
+import data from '../../utils/tempdata'
+import Profile from '../Profile/About/Profile'
+import SvgData from '../../utils/svgData'
 import { Link } from 'react-router-dom';
 
 const Worth = () => {
@@ -80,7 +80,7 @@ const Worth = () => {
 
                     <div className='flex items-center justify-around sm:justify-center gap-4'>
                         <Profile userData={data} />
-                        <About result={data} />
+                        <SocialLinks result={data} />
                     </div>
 
                     <div style={{ height: '0.5px', backgroundColor: '#E0E0E0' }} className="h-[0.5px] bg-white" />

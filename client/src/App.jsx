@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
-import LeetCodeWrapped from './components/LeetCodeWrapped'
-import Worth from './components/Worth'
+import LeetCodeWrapped from './components/Wrapped/LeetCodeWrapped'
+import Worth from './components/Worth/Worth'
 
 const App = () => {
   return (
