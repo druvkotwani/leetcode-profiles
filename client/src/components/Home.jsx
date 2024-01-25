@@ -7,7 +7,7 @@ import { firestore } from "../firebase";
 import { motion } from "framer-motion";
 import LeetCodeAlert from "../components/LeetCodeAlert";
 import "../App.css";
-import WorthAlert from "./WorthAlert";
+import WorthAlert from "./Worth/WorthAlert";
 import Skeleton from "./Skeletons/Skeleton";
 
 export default function Home() {

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import About from './About'
-import data from '../utils/tempdata'
-import Profile from './Profile'
-import SvgData from '../utils/svgData'
+import About from '../About'
+import data from '../../utils/tempdata'
+import Profile from '../Profile'
+import SvgData from '../../utils/svgData'
 import { Link } from 'react-router-dom';
 
 const Worth = () => {
