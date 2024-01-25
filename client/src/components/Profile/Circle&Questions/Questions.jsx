@@ -1,6 +1,6 @@
 import Line from './Line'
 
-const Questions = ({ type, solved, beats, line, line2, total }) => {
+const Questions = ({ type, solved, line, line2, total, beats }) => {
     return (
 
 
@@ -15,7 +15,7 @@ const Questions = ({ type, solved, beats, line, line2, total }) => {
                     </div>
                 </div >
                 <p className="space-x-1.5"><span className='text-[#9FA0A5] text-sm'>Beats</span>
-                    <span className="font-medium text-[#BDBFC2] text-sm">{beats}</span>
+                    <span className="font-medium text-[#BDBFC2] text-sm">{beats ? (beats) : `Nill`}</span>
                 </p>
             </div>
             <Line color={line} total={total} solved={solved} line2={line2} />
