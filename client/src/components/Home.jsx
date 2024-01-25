@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import LeetCodeAlert from "../components/LeetCodeAlert";
 import "../App.css";
 import WorthAlert from "./WorthAlert";
-import Skeleton from "./Skeleton";
+import Skeleton from "./Skeletons/Skeleton";
 
 export default function Home() {
     const [showStats, setShowStats] = useState(false);

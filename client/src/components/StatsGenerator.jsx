@@ -6,7 +6,7 @@ import Profile from "./Profile";
 import About from "./About";
 import { getDoc, collection, setDoc, doc } from "firebase/firestore";
 import { firestore } from "../firebase";
-import Skeleton from "./Skeleton";
+import Skeleton from "./Skeletons/Skeleton";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import * as htmlToImage from 'html-to-image';

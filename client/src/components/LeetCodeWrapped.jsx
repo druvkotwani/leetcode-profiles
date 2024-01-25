@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
-import SkeletonWrapped from './SkeletonWrapped';
+import SkeletonWrapped from './Skeletons/SkeletonWrapped';
 import SvgData from '../utils/svgData'
 
 const LeetCodeWrapped = () => {
