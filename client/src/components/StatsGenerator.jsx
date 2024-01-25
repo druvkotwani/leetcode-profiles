@@ -228,8 +228,8 @@ export default function StatsGenerator({ setShowStats }) {
 
             {/* Buttons + Input */}
             <div className="flex gap-2">
-                <form className="flex items-center w-80" onSubmit={addData}>
-                    <label htmlFor="simple-search" className="sr-only">Search</label>
+                <form className="flex items-center w-80" onSubmit={handleSubmit}>
+                    <label htmlFor="generate-stats" className="sr-only">Generate Stats</label>
                     <div className="relative w-full">
                         <input onChange={handleInputChange} type="text" id="simple-search" className="border border-gray text-sm rounded-lg block shadow w-full pl-3 p-2.5  bg-[#0e0e0e]  border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Enter the username to Generate Stats..." required="" />
                     </div>
