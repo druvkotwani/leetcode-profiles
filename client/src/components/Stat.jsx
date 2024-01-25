@@ -1,8 +1,8 @@
 import Questions from "./Profile/Circle&Questions/Questions";
 import Circle from "./Circle";
 import { useState, useEffect } from "react";
-import Profile from "./Profile";
-import SocialLinks from "./Profile/SocialLinks";
+import Profile from "./Profile/About/Profile";
+import SocialLinks from "./Profile/About/SocialLinks";
 import { motion } from "framer-motion";
 
 

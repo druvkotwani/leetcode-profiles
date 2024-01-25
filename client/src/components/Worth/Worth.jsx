@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import About from '../Profile/SocialLinks'
+import About from '../Profile/About/SocialLinks'
 import data from '../../utils/tempdata'
-import Profile from '../Profile'
+import Profile from '../Profile/About/Profile'
 import SvgData from '../../utils/svgData'
 import { Link } from 'react-router-dom';
 
