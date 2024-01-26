@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import "../App.css";
 import WorthAlert from "./Worth/WorthAlert";
 import Skeleton from "./Skeletons/Skeleton";
+import HomeSkeleton from "./Skeletons/HomeSkeleton";
 
 export default function Home() {
     const [showStats, setShowStats] = useState(false);
@@ -72,12 +73,16 @@ export default function Home() {
                 <Navbar onSearch={handleSearch} />
                 {
                     loading ? (
-                        <div className="flex flex-wrap justify-center gap-4 items-center py-4 " >
-                            {
-                                Array.from({ length: 9 }, (_, index) => index + 1).map((item) => {
-                                    return <Skeleton key={item} />
-                                })
-                            }
+                        <div className="flex flex-col mx-auto max-w-screen-xl px-2 sm:px-6 lg:px-8">
+                            <div className="grid grid-cols-1 gap-4 py-4 ">
+                                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                                    {
+                                        Array.from({ length: 9 }, (_, index) => index + 1).map((item) => {
+                                            return <HomeSkeleton key={item} />
+                                        })
+                                    }
+                                </div>
+                            </div>
                         </div>
                     )
                         : (
