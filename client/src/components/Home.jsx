@@ -101,6 +101,7 @@ export default function Home() {
                 <Navbar onSearch={handleSearch} />
                 <div className="mt-4 grid place-content-center">
                     <select
+                        disabled={loading}
                         id="sortDropdown"
                         value={selectedValue}
                         onChange={handleSortChange}
