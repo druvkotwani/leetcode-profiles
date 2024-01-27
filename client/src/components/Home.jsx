@@ -25,7 +25,6 @@ export default function Home() {
                     setData(dataList);
                     setFilteredData(dataList);
                     setLoading(false); // Set loading to false once data is fetched
-
                 });
                 // Return a cleanup function to unsubscribe from the snapshot listener when the component unmounts
                 return () => unsubscribe();
@@ -37,6 +36,7 @@ export default function Home() {
         };
 
         getContacts();
+        console.log(data)
     }, []);
 
     const handleSearch = (query) => {
@@ -58,6 +58,34 @@ export default function Home() {
         return () => clearInterval(interval);
     }, []);
 
+    function sortBasedOnQuestions() {
+        const sortedData = [...data]
+        sortedData.sort((a, b) => {
+            return b.totalSolved - a.totalSolved
+        })
+        setFilteredData(sortedData)
+    }
+
+    function sortBasedOnDefault() {
+        setFilteredData(data)
+    }
+
+    const handleSortChange = (e) => {
+        const selectedOption = e.target.value;
+        setSelectedValue(selectedOption);
+
+        if (selectedOption === 'Sort by Default') {
+            sortBasedOnDefault();
+        } else if (selectedOption === 'Sort by Questions Solved') {
+            sortBasedOnQuestions();
+        }
+    };
+
+
+
+    const [selectedValue, setSelectedValue] = useState('Only Value');
+
+
     return (
         <>
             <div className="overflow-x-hidden nunito">
@@ -71,6 +99,17 @@ export default function Home() {
                 </button>
                 {/* <WorthAlert /> */}
                 <Navbar onSearch={handleSearch} />
+                <div className="mt-4 grid place-content-center">
+                    <select
+                        id="sortDropdown"
+                        value={selectedValue}
+                        onChange={handleSortChange}
+                        className="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none text-[#FFFEFE] focus:ring focus:border-blue-300"
+                    >
+                        <option value="Sort by Default">Sort by Default</option>
+                        <option value="Sort by Questions Solved">Sort by Questions Solved</option>
+                    </select>
+                </div>
                 {
                     loading ? (
                         <div className="flex flex-col mx-auto max-w-screen-xl px-2 sm:px-6 lg:px-8">
@@ -110,7 +149,6 @@ export default function Home() {
                                 </div>
                             </div>)
                 }
-
             </div>
             {showStats && (
                 <div className="modal-overlay" onClick={() => setShowStats(false)}>
