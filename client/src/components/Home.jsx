@@ -82,9 +82,31 @@ export default function Home() {
         }
     };
 
-
-
     const [selectedValue, setSelectedValue] = useState('Only Value');
+
+    const options = [
+        {
+            heading: "LeetCode Profiles is an application that enables users to display and share their LeetCode statistics and accomplishments globally",
+            imgSrc: "/promoted1.webp",
+        },
+        {
+            heading: "Enjoying our project? Drop a star on our GitHub repo to show your support! This will help others to discover the project. 🌟",
+            imgSrc: "/promoted2.webp",
+        },
+        {
+            heading: "Could you please consider dropping a star on our GitHub repository? 👻 ",
+            imgSrc: "/promoted3.webp",
+        },
+        {
+            heading: "Could you drop a star on the GitHub repo? It helps a lot! 👋 ",
+            imgSrc: "/promoted4.webp",
+        },
+        {
+            heading: "Can you please share this project with your friends and family? ✨  ",
+            imgSrc: "/promoted4.webp",
+        }
+    ];
+    const [random, setRandom] = useState(Math.floor(Math.random() * options.length));
 
 
     return (
