@@ -30,7 +30,7 @@ export default function PromotedCard({ option }) {
                         {option.heading}
                     </p>
 
-                    <div className="mx-4 ">
+                    <div className="mx-4 mt-1 ">
                         <img alt="Ad image" src={`/assets/${option.imgSrc}`} className="z-1 w-full rounded-xl  h-40  object-cover" />
                     </div>
 

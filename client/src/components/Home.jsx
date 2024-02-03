@@ -166,8 +166,8 @@ export default function Home() {
                             }
                         </div>
                     </div>
-                </div>)
-                }
+                </div>
+
             </div>
             {showStats && (
                 <div className="modal-overlay" onClick={() => setShowStats(false)}>
