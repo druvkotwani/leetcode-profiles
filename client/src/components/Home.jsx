@@ -9,6 +9,7 @@ import "../App.css";
 import WorthAlert from "./Worth/WorthAlert";
 import Skeleton from "./Skeletons/Skeleton";
 import HomeSkeleton from "./Skeletons/HomeSkeleton";
+import PromotedCard from "./PromotedCard";
 
 export default function Home() {
     const [showStats, setShowStats] = useState(false);
@@ -111,44 +112,39 @@ export default function Home() {
                         <option value="Sort by Questions Solved">Sort by Questions Solved</option>
                     </select>
                 </div>
-                {
-                    loading ? (
-                        <div className="flex flex-col mx-auto max-w-screen-xl px-2 sm:px-6 lg:px-8">
-                            <div className="grid grid-cols-1 gap-4 py-4 ">
-                                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                                    {
-                                        Array.from({ length: 9 }, (_, index) => index + 1).map((item) => {
-                                            return <HomeSkeleton key={item} />
-                                        })
-                                    }
-                                </div>
-                            </div>
+
+                <div className="min-h-screen flex flex-col mx-auto max-w-screen-xl px-2 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 gap-4 py-4 ">
+                        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                            <PromotedCard />
+                            {
+                                loading ? (
+
+                                    Array.from({ length: 9 }, (_, index) => index + 1).map((item) => {
+                                        return <HomeSkeleton key={item} />
+                                    })
+
+                                ) : (
+                                    filteredData.length === 0 ? (
+                                        <p className="grid place-content-center ">No user found</p>
+                                    ) : (
+                                        filteredData.map((data, index) => (
+                                            <motion.div
+                                                key={data.username}
+                                                initial={{ opacity: 0, x: -50 }}
+                                                whileInView={{ opacity: 1, x: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 }}
+                                            >
+                                                <Stat data={data} index={index} />
+                                            </motion.div>
+                                        ))
+                                    )
+                                )
+                            }
                         </div>
-                    )
-                        : (
-                            <div className="min-h-screen flex flex-col mx-auto max-w-screen-xl px-2 sm:px-6 lg:px-8">
-                                <div className="grid grid-cols-1 gap-4 py-4 ">
-                                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                                        {
-                                            filteredData.length === 0 ? (
-                                                <p className="grid place-content-center ">No user found</p>
-                                            ) : (
-                                                filteredData.map((data, index) => (
-                                                    <motion.div
-                                                        key={data.username}
-                                                        initial={{ opacity: 0, x: -50 }}
-                                                        whileInView={{ opacity: 1, x: 0 }}
-                                                        viewport={{ once: true }}
-                                                        transition={{ duration: 0.3, type: "spring", stiffness: 110, delay: (index % 4) * 0.3 }}
-                                                    >
-                                                        <Stat data={data} index={index} />
-                                                    </motion.div>
-                                                ))
-                                            )
-                                        }
-                                    </div>
-                                </div>
-                            </div>)
+                    </div>
+                </div>)
                 }
             </div>
             {showStats && (
