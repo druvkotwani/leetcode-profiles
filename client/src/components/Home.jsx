@@ -86,24 +86,24 @@ export default function Home() {
 
     const options = [
         {
-            heading: "LeetCode Profiles is an application that enables users to display and share their LeetCode statistics and accomplishments globally",
-            imgSrc: "/promoted1.webp",
+            heading: "Could you drop a star on the GitHub repo? It helps a lot!👋",
+            imgSrc: "/promoted1.png",
         },
         {
-            heading: "Enjoying our project? Drop a star on our GitHub repo to show your support! This will help others to discover the project. 🌟",
+            heading: "Drop a star on our GitHub repo to show your support!🌟",
+            imgSrc: "/promoted1.png",
+        },
+        {
+            heading: "Can you drop a star on the GitHub repo? It helps a lot!👋 ",
             imgSrc: "/promoted2.webp",
         },
         {
-            heading: "Could you please consider dropping a star on our GitHub repository? 👻 ",
-            imgSrc: "/promoted3.webp",
+            heading: "Could you drop a star on the GitHub repo? It helps a lot!👋 ",
+            imgSrc: "/promoted2.webp",
         },
         {
-            heading: "Could you drop a star on the GitHub repo? It helps a lot! 👋 ",
-            imgSrc: "/promoted4.webp",
-        },
-        {
-            heading: "Can you please share this project with your friends and family? ✨  ",
-            imgSrc: "/promoted4.webp",
+            heading: "Can you please share this project with your friends and family?✨ ",
+            imgSrc: "/promoted2.webp",
         }
     ];
     const [random, setRandom] = useState(Math.floor(Math.random() * options.length));
@@ -138,7 +138,7 @@ export default function Home() {
                 <div className="min-h-screen flex flex-col mx-auto max-w-screen-xl px-2 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 gap-4 py-4 ">
                         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                            <PromotedCard />
+                            <PromotedCard option={options[random]} />
                             {
                                 loading ? (
 
