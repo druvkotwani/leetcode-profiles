@@ -99,11 +99,11 @@ export default function Home() {
         },
         {
             heading: "Could you drop a star on the GitHub repo? It helps a lot!👋 ",
-            imgSrc: "/promoted2.webp",
+            imgSrc: "/promoted3.png",
         },
         {
             heading: "Can you please share this project with your friends and family?✨ ",
-            imgSrc: "/promoted2.webp",
+            imgSrc: "/promoted3.png",
         }
     ];
     const [random, setRandom] = useState(Math.floor(Math.random() * options.length));
