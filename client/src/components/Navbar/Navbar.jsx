@@ -37,7 +37,7 @@ const Navbar = ({ onSearch }) => {
 
                         {/* Search Bar */}
                         <div className="hidden sm:block">
-                            <div className="flex items-center w-80">
+                            <div className="flex items-center sm:w-55 xl:w-80">
                                 <label htmlFor="simple-search" className="sr-only">Search</label>
                                 <div className="relative w-full">
                                     <input type="text" id="simple-search" className="border border-gray text-sm rounded-lg block shadow w-full pl-3 p-2.5  bg-[#0e0e0e]  border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" value={searchQuery}
