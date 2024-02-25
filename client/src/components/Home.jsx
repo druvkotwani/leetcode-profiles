@@ -115,7 +115,7 @@ export default function Home() {
                     </select>
                 </div>
 
-                <div className="min-h-screen flex flex-col mx-auto max-w-screen-xl px-2 sm:px-6 lg:px-8">
+                <div className="min-h-screen flex flex-col mx-auto max-w-screen-xl px-2 sm:px-2 md:px-6 lg:px-2 xl:px-8">
                     <div className="grid grid-cols-1 gap-4 py-4 ">
                         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                             <PromotedCard option={options[random]} />
