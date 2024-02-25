@@ -10,6 +10,7 @@ import WorthAlert from "./Worth/WorthAlert";
 import Skeleton from "./Skeletons/Skeleton";
 import HomeSkeleton from "./Skeletons/HomeSkeleton";
 import PromotedCard from "./PromotedCard";
+import { options } from "../utils/index"
 
 export default function Home() {
     const [showStats, setShowStats] = useState(false);
@@ -84,28 +85,7 @@ export default function Home() {
 
     const [selectedValue, setSelectedValue] = useState('Only Value');
 
-    const options = [
-        {
-            heading: "Could you drop a star on the GitHub repo? It helps a lot!👋",
-            imgSrc: "/promoted1.png",
-        },
-        {
-            heading: "Drop a star on our GitHub repo to show your support!🌟",
-            imgSrc: "/promoted1.png",
-        },
-        {
-            heading: "Can you drop a star on the GitHub repo? It helps a lot!👋 ",
-            imgSrc: "/promoted2.webp",
-        },
-        {
-            heading: "Could you drop a star on the GitHub repo? It helps a lot!👋 ",
-            imgSrc: "/promoted3.png",
-        },
-        {
-            heading: "Can you please share this project with your friends and family?✨ ",
-            imgSrc: "/promoted3.png",
-        }
-    ];
+
     const [random, setRandom] = useState(Math.floor(Math.random() * options.length));
 
 
