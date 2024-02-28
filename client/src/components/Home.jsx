@@ -11,6 +11,7 @@ import Skeleton from "./Skeletons/Skeleton";
 import HomeSkeleton from "./Skeletons/HomeSkeleton";
 import PromotedCard from "./PromotedCard";
 import { options } from "../utils/index"
+import Pagination from "./Pagination/Pagination";
 
 export default function Home() {
     const [showStats, setShowStats] = useState(false);
@@ -83,9 +84,12 @@ export default function Home() {
         }
     };
 
+    const [pageNo, setPageNo] = useState(1)
+    const totalPages = Math.ceil(filteredData.length / 11)
+
+
+
     const [selectedValue, setSelectedValue] = useState('Only Value');
-
-
     const [random, setRandom] = useState(Math.floor(Math.random() * options.length));
 
 
@@ -130,7 +134,7 @@ export default function Home() {
                                     filteredData.length === 0 ? (
                                         <p className="grid place-content-center ">No user found</p>
                                     ) : (
-                                        filteredData.map((data, index) => (
+                                        filteredData.slice((pageNo * 11) - 11, pageNo * 11).map((data, index) => (
                                             <motion.div
                                                 key={data.username}
                                                 initial={{ opacity: 0, x: -50 }}
@@ -157,6 +161,7 @@ export default function Home() {
                 </div>
 
             )}
+            <Pagination pageNo={pageNo} setPageNo={setPageNo} totalPages={totalPages} />
         </>
     )
 }
