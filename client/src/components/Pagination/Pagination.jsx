@@ -9,24 +9,10 @@ export default function Pagination({ pageNo, setPageNo, totalPages }) {
     return (
         <div className="flex items-center justify-between border-t border-gray-200 bg-transparent px-4 py-3 sm:px-6">
 
-            {/* For mobile devices */}
-            <div className="flex flex-1 justify-between sm:hidden">
-                <button
-                    href="#"
-                    className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                >
-                    Previous
-                </button>
-                <button
-                    href="#"
-                    className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                >
-                    Next
-                </button>
-            </div>
+
 
             {/* For larger devices */}
-            <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-center">
+            <div className="flex flex-1 items-center justify-center">
                 <div>
                     <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
                         <button onClick={() => {
