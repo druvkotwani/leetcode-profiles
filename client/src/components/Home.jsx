@@ -6,8 +6,7 @@ import { collection, getDocs, onSnapshot } from "firebase/firestore";
 import { firestore } from "../firebase";
 import { motion } from "framer-motion";
 import "../App.css";
-import WorthAlert from "./Worth/WorthAlert";
-import Skeleton from "./Skeletons/Skeleton";
+
 import HomeSkeleton from "./Skeletons/HomeSkeleton";
 import PromotedCard from "./PromotedCard";
 import { options } from "../utils/index"
