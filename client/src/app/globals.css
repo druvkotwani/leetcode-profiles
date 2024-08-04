@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #0e0e0e;
+  background-image: linear-gradient(rgba(79, 70, 229, 0.1) 1px, transparent 0),
+    linear-gradient(90deg, rgba(79, 70, 229, 0.1) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.font-sourcecodepro {
+  font-family: var(--font-sourcecodepro);
+}
+
+.rotate {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1s ease;
+}
+
+.rotate:hover {
+  transform: rotate(360deg);
+}
