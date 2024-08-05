@@ -39,7 +39,7 @@ const userData = {
 
 export default function Card({ data, index }: any) {
   return (
-    <div className="max-w-[400px] w-full bg-[#0e0e0e] flex justify-center flex-col items-center rounded h-[280px] border-2 border-[#cecece]">
+    <div className="max-w-[400px] w-full px-8 pb-3 bg-[#0e0e0e] flex justify-center flex-col items-center rounded h-[280px] border-2 border-[#cecece]">
       <div>
         <div className="flex gap-1 xl:gap-4 items-center justify-between ">
           {/* Profile */}

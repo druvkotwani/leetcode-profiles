@@ -25,3 +25,115 @@ body {
 .rotate:hover {
   transform: rotate(360deg);
 }
+
+/* Styles */
+
+.animated-button {
+  /* Define the initial scale of the button */
+  transform: scale(1);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Define the animation when the 'animate' class is applied */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 10px #fff;
+  }
+  50% {
+    box-shadow: 0 0 20px #ffc11f;
+  }
+  100% {
+    box-shadow: 0 0 10px #fff;
+  }
+}
+
+/* Apply animation when the 'animate' class is present */
+.animate {
+  animation: glowing 2s linear infinite;
+  animation-iteration-count: infinite;
+}
+
+/* Styles for the overlay (to cover the background) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above other content */
+  backdrop-filter: blur(8px); /* Apply a blur effect */
+}
+
+/* Styles for the LeetCodeAlert */
+@keyframes snowflake-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  12% {
+    transform: rotate(20deg);
+  }
+
+  25% {
+    transform: rotate(-13deg);
+  }
+  37% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+}
+.snow {
+  position: absolute;
+}
+.snow {
+  animation: infinite 6s snowflake-spin;
+  animation-timing-function: ease-in-out;
+  background: linear-gradient(
+    -45deg,
+    rgba(100, 210, 255, 0.52) 0%,
+    #64d2ff 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.snow-sm {
+  font-size: 20px;
+  animation-delay: 0.7s;
+  opacity: 0.8;
+  left: 65px;
+  top: 23px;
+}
+
+.snow-xs {
+  font-size: 14px;
+  animation-delay: 0.3s;
+  opacity: 0.6;
+  left: 50px;
+  top: 9px;
+}
