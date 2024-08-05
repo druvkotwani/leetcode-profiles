@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 const SocialLinks = ({ result, index }: any) => {
+  const [hovered, setHovered] = useState<string | null>(null);
   const random = Math.floor(Math.random() * 1);
 
   function truncateText(text: any, maxLength: any) {
@@ -17,6 +21,8 @@ const SocialLinks = ({ result, index }: any) => {
             </p> */}
       {result?.website?.link && (
         <Link
+          onMouseEnter={() => setHovered("website")}
+          onMouseLeave={() => setHovered(null)}
           target="_blank"
           rel="noreferrer"
           href={result?.website?.link}
@@ -27,14 +33,19 @@ const SocialLinks = ({ result, index }: any) => {
             width={17}
             height={19}
             alt="Website"
+            className="mr-1"
           />
           <span className="text-sm text-[#BDBEC3] ">
-            <p className="">{truncateText(result?.website?.text, 13)}</p>
+            <p className={`${hovered === "website" ? "text-[#f7f7f7]" : ""}`}>
+              {truncateText(result?.website?.text, 10)}
+            </p>
           </span>
         </Link>
       )}
       {result?.github?.link && (
         <Link
+          onMouseEnter={() => setHovered("github")}
+          onMouseLeave={() => setHovered(null)}
           target="_blank"
           rel="noreferrer"
           href={result?.github?.link}
@@ -45,14 +56,19 @@ const SocialLinks = ({ result, index }: any) => {
             width={17}
             height={19}
             alt="Github"
+            className="mr-1"
           />
           <span className="text-sm text-[#BDBEC3] ">
-            <p className="">{truncateText(result?.github?.text, 13)}</p>
+            <p className={`${hovered === "github" ? "text-[#f7f7f7]" : ""}`}>
+              {truncateText(result?.github?.text, 10)}
+            </p>
           </span>
         </Link>
       )}
       {result?.twitter?.link && (
         <Link
+          onMouseEnter={() => setHovered("twitter")}
+          onMouseLeave={() => setHovered(null)}
           target="_blank"
           rel="noreferrer"
           href={result?.twitter?.link}
@@ -66,12 +82,16 @@ const SocialLinks = ({ result, index }: any) => {
             className="mr-1"
           />
           <span className="text-sm text-[#BDBEC3] ">
-            <p className="">{truncateText(result?.twitter?.text, 13)}</p>
+            <p className={`${hovered === "twitter" ? "text-[#f7f7f7]" : ""}`}>
+              {truncateText(result?.twitter?.text, 10)}
+            </p>
           </span>
         </Link>
       )}
       {result?.linkedin?.link && (
         <Link
+          onMouseEnter={() => setHovered("linkedin")}
+          onMouseLeave={() => setHovered(null)}
           target="_blank"
           rel="noreferrer"
           href={result?.linkedin?.link}
@@ -85,7 +105,9 @@ const SocialLinks = ({ result, index }: any) => {
             className="mr-1"
           />
           <span className="text-sm text-[#BDBEC3] ">
-            <p className="">{truncateText(result?.linkedin?.text, 13)}</p>
+            <p className={`${hovered === "linkedin" ? "text-[#f7f7f7]" : ""}`}>
+              {truncateText(result?.linkedin?.text, 10)}
+            </p>
           </span>
         </Link>
       )}

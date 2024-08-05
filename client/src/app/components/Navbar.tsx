@@ -7,7 +7,7 @@ import React, { useState } from "react";
 const Navbar: React.FC = () => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   return (
-    <nav className="bg-[#0e0e0e] border-b border-b-white fixed top-0 left-0 w-full px-8  py-4 flex justify-around items-center">
+    <nav className="bg-[#0e0e0e] z-10 border-b border-b-white fixed top-0 left-0 w-full px-8  py-4 flex justify-around items-center">
       {/* Logo */}
       <Link href="/">
         <Image

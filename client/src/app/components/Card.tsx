@@ -5,24 +5,22 @@ import SocialLinks from "./SocialLinks";
 
 const userData = {
   profileData: {
-    image: "/assets/images/avatars/avatar.png",
+    image: "https://assets.leetcode.com/users/avatars/avatar_1672478903.png",
     fullName: "John Doe",
     username: "johndoe",
     badgeImg: "/assets/images/badges/1.png",
-    rank: "Intermediate",
+    rank: "203432",
   },
   aboutData: {
-    github: {
-      link: " ",
-      text: " ",
-    },
-    twitter: {
-      link: " ",
-      text: " ",
-    },
+    github: { link: "https://github.com/druvkotwani", text: "druvkotwani" },
+    twitter: { link: "https://twitter.com/druv_kotwani", text: "druv_kotwani" },
     linkedin: {
-      link: " ",
-      text: " ",
+      link: "https://linkedin.com/in/dhruv-kotwani",
+      text: "dhruv-kotwani",
+    },
+    website: {
+      link: "https://dhruvkotwani.me",
+      text: "dhruvkotwani.vercel.app",
     },
   },
 
@@ -41,7 +39,7 @@ const userData = {
 
 export default function Card({ data, index }: any) {
   return (
-    <div className="flex justify-center flex-col items-center rounded-lg h-[280px] border border-[#cecece]">
+    <div className="max-w-[400px] w-full bg-[#0e0e0e] flex justify-center flex-col items-center rounded h-[280px] border-2 border-[#cecece]">
       <div>
         <div className="flex gap-1 xl:gap-4 items-center justify-between ">
           {/* Profile */}
@@ -58,34 +56,34 @@ export default function Card({ data, index }: any) {
         <div className=" flex lg:flex-row gap-5 items-center justify-center mt-4">
           {/* Circle */}
 
-          <Circle total={data?.totalSolved} />
+          <Circle total={userData?.totalSolved} />
 
           <div className="flex flex-col gap-3">
             {/* Questions */}
 
             <Questions
               type={"Easy"}
-              solved={data?.easySolved}
-              total={data?.easyTotal}
-              beats={data?.easyBeats}
+              solved={userData?.easySolved}
+              total={userData?.easyTotal}
+              beats={userData?.easyBeats}
               line="bg-[#2db55d26]"
               line2="bg-[#01B8A2]"
             />
 
             <Questions
               type={"Medium"}
-              solved={data?.mediumSolved}
-              total={data?.mediumTotal}
-              beats={data?.mediumBeats}
+              solved={userData?.mediumSolved}
+              total={userData?.mediumTotal}
+              beats={userData?.mediumBeats}
               line="bg-[#ffb80026]"
               line2="bg-[#FFC11F]"
             />
 
             <Questions
               type={"Hard"}
-              solved={data?.hardSolved}
-              total={data?.hardTotal}
-              beats={data?.hardBeats}
+              solved={userData?.hardSolved}
+              total={userData?.hardTotal}
+              beats={userData?.hardBeats}
               line="bg-[#ef474326]"
               line2="bg-[#EF4642]"
             />

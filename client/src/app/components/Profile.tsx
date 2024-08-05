@@ -30,17 +30,6 @@ const Profile = ({ userData, index }: any) => {
 
           <div className="flex items-center flex-nowrap">
             <p className="text-xs text-[#9FA1A4]">{userData?.username}</p>
-            {userData?.badgeImg && (
-              <div className="ml-1">
-                <Image
-                  width={14}
-                  height={14}
-                  alt="badge"
-                  src={userData.badgeImg}
-                  className="h-[14px] w-[14px]"
-                />
-              </div>
-            )}
           </div>
 
           {/* rank */}
