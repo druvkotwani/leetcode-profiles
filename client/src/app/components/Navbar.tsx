@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
 
       {/* Profile */}
 
-      <div className="flex rounded gap-2 border border-[#1f1f1f]">
+      <div className="flex rounded gap-8 border border-[#1f1f1f] px-4 py-2">
         {[
           {
             icon: "/assets/icons/globe.svg",
@@ -72,7 +72,7 @@ const Navbar: React.FC = () => {
             onMouseLeave={() => setHoveredItem(null)}
             href={item.link}
             key={index}
-            className={` px-4 py-2 relative flex items-center justify-center`}
+            className={` relative flex items-center justify-center`}
           >
             <Image
               src={item.icon}
@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
               className={`${
                 hoveredItem === item.name
                   ? ` ${
-                      item.name === "Contribute"
+                      item.name === "Contribute" || item.name === "Profile"
                         ? "rotate"
                         : "ease-in scale-105 transition-all opacity-80 transform duration-300 "
                     }`
@@ -91,7 +91,7 @@ const Navbar: React.FC = () => {
             />
 
             {hoveredItem === item.name && (
-              <div className="absolute top-12 font-sourcecodepro left-0 bg-[#1f1f1f] text-white text-sm p-2 rounded-lg">
+              <div className="absolute top-10 font-sourcecodepro -left-4 bg-[#1f1f1f] text-white text-sm p-2 rounded-lg">
                 {item.name}
               </div>
             )}
