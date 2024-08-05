@@ -7,7 +7,7 @@ import React, { useState } from "react";
 const Navbar: React.FC = () => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   return (
-    <nav className="bg-[#0e0e0e] z-10 border-b border-b-white fixed top-0 left-0 w-full px-8  py-4 flex justify-around items-center">
+    <nav className="bg-[#0e0e0e] z-10 border-b border-b-white fixed top-0 left-0 w-full md:px-8 px-4  py-4 flex justify-around items-center">
       {/* Logo */}
       <Link href="/">
         <Image
@@ -19,12 +19,12 @@ const Navbar: React.FC = () => {
       </Link>
 
       {/* Search */}
-      <form>
+      <form className="">
         <div className="relative flex ">
           <input
             type="text"
             placeholder="Search by username"
-            className="bg-[#1f1f1f] font-sourcecodepro text-white rounded px-4 py-3  focus:outline-none pl-10"
+            className="bg-[#1f1f1f] sm:w-[260px] w-[100px] font-sourcecodepro text-white rounded px-4 py-3  focus:outline-none pl-10"
           />
           <Image
             src="/assets/icons/search.svg"
@@ -38,32 +38,37 @@ const Navbar: React.FC = () => {
 
       {/* Profile */}
 
-      <div className="flex rounded gap-8 border border-[#1f1f1f] px-4 py-2">
+      <div className="flex rounded gap-4 md:gap-8 border border-[#1f1f1f] px-4 py-2">
         {[
           {
-            icon: "/assets/icons/globe.svg",
+            icon: "/assets/icons/ninja.svg",
             link: "https://dhruvkotwani.vercel.app/",
             name: "Profile",
+            flag: false,
           },
           {
             icon: "/assets/icons/linkedin.svg",
             link: "https://www.linkedin.com/in/dhruv-kotwani",
             name: "Linkedin",
+            flag: true,
           },
           {
             icon: "/assets/icons/github.svg",
             link: "https://github.com/druvkotwani/",
             name: "Github",
+            flag: false,
           },
           {
             icon: "/assets/icons/twitter.svg",
             link: "https://x.com/druv_kotwani",
             name: "Twitter",
+            flag: true,
           },
           {
             icon: "/assets/icons/star.svg",
             link: "https://github.com/druvkotwani/Leetcode-Profiles/",
             name: "Contribute",
+            flag: true,
           },
         ].map((item: any, index: number) => (
           <Link
@@ -72,7 +77,9 @@ const Navbar: React.FC = () => {
             onMouseLeave={() => setHoveredItem(null)}
             href={item.link}
             key={index}
-            className={` relative flex items-center justify-center`}
+            className={`${
+              item.flag ? "" : "hidden sm:block"
+            } relative flex items-center justify-center`}
           >
             <Image
               src={item.icon}
