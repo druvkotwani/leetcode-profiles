@@ -3,12 +3,11 @@ import Profile from "./Profile";
 import Questions from "./Questions";
 import SocialLinks from "./SocialLinks";
 
-const userData = {
+export const data = {
   profileData: {
     image: "https://assets.leetcode.com/users/avatars/avatar_1672478903.png",
     fullName: "John Doe",
     username: "johndoe",
-    badgeImg: "/assets/images/badges/1.png",
     rank: "203432",
   },
   aboutData: {
@@ -25,19 +24,15 @@ const userData = {
   },
 
   totalSolved: 100,
-
   easySolved: 50,
   easyTotal: 100,
-  easyBeats: 50,
   mediumSolved: 30,
   mediumTotal: 50,
-  mediumBeats: 20,
   hardSolved: 20,
   hardTotal: 50,
-  hardBeats: 30,
 };
 
-export default function Card({ data, index }: any) {
+export default function Card({ userData = data, index }: any) {
   return (
     <div className="max-w-[400px] w-full px-8 pb-3 bg-[#0e0e0e] flex justify-center flex-col items-center rounded h-[280px] border-2 border-[#cecece]">
       <div>
