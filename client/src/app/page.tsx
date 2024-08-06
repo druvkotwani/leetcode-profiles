@@ -6,6 +6,7 @@ import Card from "./components/Card";
 import Footer from "./components/Footer";
 import GenerateStats from "./components/GenerateStats";
 import { useState } from "react";
+import PromotionCard from "./components/PromotionCard";
 
 export default function Home() {
   const [showStats, setShowStats] = useState(false);
@@ -28,6 +29,7 @@ export default function Home() {
       <GenerateStats showStats={showStats} setShowStats={setShowStats} />
 
       <div className="mt-32 max-w-7xl mx-auto  place-items-center grid grid-cols-1 md:grid-cols-2 gap-y-8 xl:grid-cols-3 font-sourcecodepro gap-x-4">
+        <PromotionCard />
         {[Array.from({ length: 12 }, (_, i) => <Card key={i} />)]}
       </div>
 
