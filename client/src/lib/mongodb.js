@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = 'mongodb+srv://hackerdruv:TwE0oLsj8kd0ql78@workflo.skbz2gj.mongodb.net/leetcode?retryWrites=true&w=majority&appName=workflo';
+const MONGODB_URI = process.env.NEXT_MONGO_URI;
 if (!MONGODB_URI) {
     throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
 }
