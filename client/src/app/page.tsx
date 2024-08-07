@@ -32,7 +32,7 @@ export default function Home() {
 
   useEffect(() => {
     fetchData();
-  }, [datas.length]);
+  }, [datas && datas.length]);
 
   const searchedData = datas?.filter((data: any) =>
     data.profileData.fullName.toLowerCase().includes(search.toLowerCase())

@@ -13,7 +13,7 @@ const GenerateStats = ({ showStats, setShowStats }: any) => {
   const [data, setData] = useState<any>(defaultData);
   const [loading, setLoading] = useState(false);
 
-  const generateStats = (e: React.FormEvent) => {
+  const generateStats = async (e: React.FormEvent) => {
     setLoading(true);
     e.preventDefault();
 
@@ -22,15 +22,21 @@ const GenerateStats = ({ showStats, setShowStats }: any) => {
     }
 
     try {
-      fetch("/api/" + username)
-        .then((res) => res.json())
-        .then((data) => {
-          setData(data);
-          toast("🫡Stats generated successfully");
-          setLoading(false);
-        });
+      const res = await fetch("/api/" + username);
+      if (!res.ok) {
+        toast("👻 User not found");
+        setLoading(false);
+        return;
+      }
+
+      const data = await res.json();
+      setData(data);
+      toast("🫡 Stats generated successfully");
     } catch (error) {
       console.error("An error occurred. Please try again later");
+      toast("😞 An error occurred. Please try again later");
+    } finally {
+      setLoading(false);
     }
   };
 
