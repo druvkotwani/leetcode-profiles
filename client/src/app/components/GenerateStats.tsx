@@ -3,15 +3,18 @@ import React, { useContext, useState } from "react";
 import Card from "./Card";
 import Image from "next/image";
 import { data as defaultData } from "./Card";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { DataContext } from "../context/DataContext";
+import Skeleton from "./Skeleton";
 
 const GenerateStats = ({ showStats, setShowStats }: any) => {
   const { datas, setDatas } = useContext(DataContext);
   const [username, setUsername] = useState("");
   const [data, setData] = useState<any>(defaultData);
+  const [loading, setLoading] = useState(false);
 
   const generateStats = (e: React.FormEvent) => {
+    setLoading(true);
     e.preventDefault();
 
     if (!username) {
@@ -24,6 +27,7 @@ const GenerateStats = ({ showStats, setShowStats }: any) => {
         .then((data) => {
           setData(data);
           toast("🫡Stats generated successfully");
+          setLoading(false);
         });
     } catch (error) {
       console.error("An error occurred. Please try again later");
@@ -68,7 +72,13 @@ const GenerateStats = ({ showStats, setShowStats }: any) => {
           onClick={(e) => e.stopPropagation()}
           className="px-4 flex items-center justify-center flex-col gap-4"
         >
-          <Card userData={data} />
+          {loading ? (
+            <>
+              <Skeleton />
+            </>
+          ) : (
+            <Card userData={data} />
+          )}
 
           <form
             onSubmit={generateStats}

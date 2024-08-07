@@ -43,7 +43,7 @@ const PromotionCard = () => {
       target="_blank"
       className="hover:scale-105 transition-all ease-in-out duration-300 font-sourcecodepro "
     >
-      <div className="flex justify-betwen flex-col  items-center rounded h-[280px] border-2 border-[#f7f7f7] ">
+      <div className="flex justify-betwen max-w-[400px] flex-col  items-center rounded h-[280px] border-2 border-[#f7f7f7] ">
         {/* Heading and Logo */}
         <div className="flex gap-1 xl:gap-4 items-center justify-between   ">
           <div className="flex items-center text-white justify-center px-4 py-2 w-full gap-2   rounded-md">

@@ -10,6 +10,7 @@ import PromotionCard from "./components/PromotionCard";
 import { DataContext } from "./context/DataContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Skeleton from "./components/Skeleton";
 
 export default function Home() {
   const { datas, setDatas } = useContext(DataContext);
@@ -31,7 +32,7 @@ export default function Home() {
 
   useEffect(() => {
     fetchData();
-  }, [datas]);
+  }, [datas.length]);
 
   const searchedData = datas?.filter((data: any) =>
     data.profileData.fullName.toLowerCase().includes(search.toLowerCase())
@@ -57,7 +58,14 @@ export default function Home() {
 
       <div className="mt-32  max-w-7xl mx-auto  place-items-center grid grid-cols-1 md:grid-cols-2 gap-y-8 xl:grid-cols-3 font-sourcecodepro gap-x-4">
         <PromotionCard />
-        {searchedData &&
+        {loading ? (
+          <>
+            {Array.from({ length: 6 }, (_, i) => (
+              <Skeleton key={i} />
+            ))}
+          </>
+        ) : (
+          searchedData &&
           searchedData
             .sort(
               (a: any, b: any) =>
@@ -66,7 +74,8 @@ export default function Home() {
             )
             .map((userData: any, index: number) => (
               <Card userData={userData} index={index} key={index} />
-            ))}
+            ))
+        )}
       </div>
 
       <Footer />
