@@ -7,6 +7,7 @@ import { data as defaultData } from "./Card";
 const GenerateStats = ({ showStats, setShowStats }: any) => {
   const [username, setUsername] = useState("");
   const [data, setData] = useState<any>(defaultData);
+
   const generateStats = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -23,6 +24,26 @@ const GenerateStats = ({ showStats, setShowStats }: any) => {
         });
     } catch (error) {
       console.error("An error occurred. Please try again later");
+    }
+  };
+
+  const addToLeetboard = async () => {
+    try {
+      const response = await fetch("/api/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
+      if (result.success) {
+        console.log("Data added to the hall of fame");
+      } else {
+        console.error("Error adding data to the hall of fame");
+      }
+    } catch (error) {
+      console.error("An error occurred while adding data to the hall of fame");
     }
   };
 
@@ -69,7 +90,11 @@ const GenerateStats = ({ showStats, setShowStats }: any) => {
             >
               Generate <span className="hidden sm:inline-block">Stats</span>
             </button>
-            <button className=" border bg-[#010101] px-4 h-[40px] rounded-md text-white font-semibold text-lg mt-4">
+            <button
+              type="button"
+              onClick={addToLeetboard}
+              className=" border bg-[#010101] px-4 h-[40px] rounded-md text-white font-semibold text-lg mt-4"
+            >
               Add to <span className="">Leetboard</span>
             </button>
           </div>

@@ -5,10 +5,28 @@ import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
 import GenerateStats from "./components/GenerateStats";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PromotionCard from "./components/PromotionCard";
 
 export default function Home() {
+  const [data, setData] = useState<any>();
+  const [loading, setLoading] = useState(true);
+  const fetchData = async () => {
+    try {
+      const res = await fetch("/api/fetchdata");
+      const data = await res.json();
+      setData(data.data);
+      console.log(data.data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching messages:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const [showStats, setShowStats] = useState(false);
   return (
     <section className="px-4 lg:px-24 relative ">
@@ -30,7 +48,10 @@ export default function Home() {
 
       <div className="mt-32 max-w-7xl mx-auto  place-items-center grid grid-cols-1 md:grid-cols-2 gap-y-8 xl:grid-cols-3 font-sourcecodepro gap-x-4">
         <PromotionCard />
-        {[Array.from({ length: 12 }, (_, i) => <Card key={i} />)]}
+        {data &&
+          data.map((userData: any, index: number) => (
+            <Card userData={userData} index={index} key={index} />
+          ))}
       </div>
 
       <Footer />
