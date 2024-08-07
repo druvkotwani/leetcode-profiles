@@ -4,8 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
-const Navbar: React.FC = () => {
+type NavbarProps = {
+  search: string;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+};
+
+const Navbar: React.FC<NavbarProps> = ({ search, setSearch }) => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+
   return (
     <nav className="bg-[#0e0e0e] z-10 border-b border-b-white fixed top-0 left-0 w-full md:px-8 px-4  py-4 flex justify-around items-center">
       {/* Logo */}
@@ -22,6 +28,8 @@ const Navbar: React.FC = () => {
       <form className="">
         <div className="relative flex ">
           <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
             type="text"
             placeholder="Search by username"
             className="bg-[#1f1f1f] sm:w-[260px] w-[100px] font-sourcecodepro text-white rounded px-4 py-3  focus:outline-none pl-10"

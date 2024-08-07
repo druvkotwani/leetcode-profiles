@@ -14,6 +14,9 @@ import "react-toastify/dist/ReactToastify.css";
 export default function Home() {
   const { datas, setDatas } = useContext(DataContext);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState<string>("");
+  const [showStats, setShowStats] = useState(false);
+
   const fetchData = async () => {
     try {
       const res = await fetch("/api/fetchdata");
@@ -30,7 +33,10 @@ export default function Home() {
     fetchData();
   }, [datas]);
 
-  const [showStats, setShowStats] = useState(false);
+  const searchedData = datas?.filter((data: any) =>
+    data.profileData.fullName.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <section className="px-4 lg:px-24 relative ">
       <button
@@ -45,14 +51,14 @@ export default function Home() {
         />
       </button>
 
-      <Navbar />
+      <Navbar search={search} setSearch={setSearch} />
 
       <GenerateStats showStats={showStats} setShowStats={setShowStats} />
 
-      <div className="mt-32 max-w-7xl mx-auto  place-items-center grid grid-cols-1 md:grid-cols-2 gap-y-8 xl:grid-cols-3 font-sourcecodepro gap-x-4">
+      <div className="mt-32  max-w-7xl mx-auto  place-items-center grid grid-cols-1 md:grid-cols-2 gap-y-8 xl:grid-cols-3 font-sourcecodepro gap-x-4">
         <PromotionCard />
-        {datas &&
-          datas
+        {searchedData &&
+          searchedData
             .sort(
               (a: any, b: any) =>
                 new Date(b.timeStamp).getTime() -

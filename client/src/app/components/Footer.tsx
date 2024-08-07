@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="text-center mt-8 pb-4 text-gray-500 font-sourcecodepro">
+    <footer className=" text-center mt-8 py-4 text-gray-500 font-sourcecodepro">
       <p>
         Made with{" "}
         <span aria-label="heart" role="img">
