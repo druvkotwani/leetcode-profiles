@@ -23,7 +23,6 @@ export default function Home() {
       const res = await fetch("/api/fetchdata");
       const data = await res.json();
       setDatas(data.data);
-      console.log(data.data);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching messages:", error);
