@@ -10,6 +10,7 @@ export default async function handler(req: any, res: any) {
   switch (method) {
     case "POST":
       try {
+        const timeStamp = new Date();
         const { username } = req.body.profileData;
 
         // Check if the user already exists
@@ -24,7 +25,7 @@ export default async function handler(req: any, res: any) {
         }
 
         // Create new user if username doesn't exist
-        const message = await UserData.create(req.body);
+        const message = await UserData.create({ ...req.body, timeStamp });
         res.status(201).json({ success: true, data: message });
       } catch (error) {
         res.status(400).json({ success: false, error });

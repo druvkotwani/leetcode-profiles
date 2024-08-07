@@ -5,17 +5,20 @@ import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
 import GenerateStats from "./components/GenerateStats";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PromotionCard from "./components/PromotionCard";
+import { DataContext } from "./context/DataContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
-  const [data, setData] = useState<any>();
+  const { datas, setDatas } = useContext(DataContext);
   const [loading, setLoading] = useState(true);
   const fetchData = async () => {
     try {
       const res = await fetch("/api/fetchdata");
       const data = await res.json();
-      setData(data.data);
+      setDatas(data.data);
       console.log(data.data);
       setLoading(false);
     } catch (error) {
@@ -25,7 +28,7 @@ export default function Home() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [datas]);
 
   const [showStats, setShowStats] = useState(false);
   return (
@@ -48,13 +51,32 @@ export default function Home() {
 
       <div className="mt-32 max-w-7xl mx-auto  place-items-center grid grid-cols-1 md:grid-cols-2 gap-y-8 xl:grid-cols-3 font-sourcecodepro gap-x-4">
         <PromotionCard />
-        {data &&
-          data.map((userData: any, index: number) => (
-            <Card userData={userData} index={index} key={index} />
-          ))}
+        {datas &&
+          datas
+            .sort(
+              (a: any, b: any) =>
+                new Date(b.timeStamp).getTime() -
+                new Date(a.timeStamp).getTime()
+            )
+            .map((userData: any, index: number) => (
+              <Card userData={userData} index={index} key={index} />
+            ))}
       </div>
 
       <Footer />
+
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </section>
   );
 }

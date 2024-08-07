@@ -1,3 +1,4 @@
+import { timeStamp } from "console";
 import mongoose from "mongoose";
 
 const userDataSchema = new mongoose.Schema({
@@ -33,6 +34,7 @@ const userDataSchema = new mongoose.Schema({
   mediumTotal: Number,
   hardSolved: Number,
   hardTotal: Number,
+  timeStamp: Date,
 });
 
 export default mongoose.models.userdatas ||
