@@ -50,6 +50,12 @@ const GenerateStats = ({ showStats, setShowStats }: any) => {
         body: JSON.stringify(data),
       });
       const result = await response.json();
+
+      if (!result.success) {
+        toast("👻 Username already exists in LeetBoard");
+        return;
+      }
+
       if (result.success) {
         setDatas([...datas, data]);
         toast("🥷Data added to the hall of fame");
