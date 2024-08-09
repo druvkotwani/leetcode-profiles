@@ -5,31 +5,37 @@ import SocialLinks from "./SocialLinks";
 
 export const data = {
   profileData: {
+    username: "druv_kotwani",
+    rank: 263817,
     image: "https://assets.leetcode.com/users/avatars/avatar_1672478903.png",
-    fullName: "John Doe",
-    username: "johndoe",
-    rank: "203432",
+    fullName: "Dhruv Kotwani",
   },
   aboutData: {
-    github: { link: "https://github.com/druvkotwani", text: "druvkotwani" },
-    twitter: { link: "https://twitter.com/druv_kotwani", text: "druv_kotwani" },
-    linkedin: {
-      link: "https://linkedin.com/in/dhruv-kotwani",
-      text: "dhruv-kotwani",
+    github: {
+      link: "https://github.com/druvkotwani",
+      text: "Github",
     },
     website: {
-      link: "https://dhruvkotwani.me",
-      text: "dhruvkotwani.vercel.app",
+      link: "https://dhruvkotwani.vercel.app",
+      text: "Website",
+    },
+    linkedin: {
+      link: "https://linkedin.com/in/dhruv-kotwani",
+      text: "LinkedIn",
+    },
+    twitter: {
+      link: "https://twitter.com/druv_kotwani",
+      text: "Twitter",
     },
   },
-
-  totalSolved: 100,
-  easySolved: 50,
-  easyTotal: 100,
-  mediumSolved: 30,
-  mediumTotal: 50,
-  hardSolved: 20,
-  hardTotal: 50,
+  total: 3247,
+  easyTotal: 817,
+  mediumTotal: 1704,
+  hardTotal: 726,
+  totalSolved: 306,
+  easySolved: 175,
+  mediumSolved: 110,
+  hardSolved: 21,
 };
 
 export default function Card({ userData = data, index }: any) {

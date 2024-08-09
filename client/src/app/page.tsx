@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
 import GenerateStats from "./components/GenerateStats";
-import { useContext, useEffect, useState } from "react";
+import { use, useContext, useEffect, useState } from "react";
 import PromotionCard from "./components/PromotionCard";
 import { DataContext } from "./context/DataContext";
 import { ToastContainer } from "react-toastify";
@@ -17,6 +17,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState<string>("");
   const [showStats, setShowStats] = useState(false);
+  const [sortBy, setSortBy] = useState("default");
 
   const fetchData = async () => {
     try {
@@ -33,9 +34,32 @@ export default function Home() {
     fetchData();
   }, [datas && datas.length]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setShowStats(true);
+    }, 5000);
+  }, []);
+
+  const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSortBy(e.target.value);
+  };
+
   const searchedData = datas?.filter((data: any) =>
     data.profileData.fullName.toLowerCase().includes(search.toLowerCase())
   );
+  const sorting = (data: any[]) => {
+    switch (sortBy) {
+      case "question-solved":
+        return data.slice().sort((a, b) => b.totalSolved - a.totalSolved);
+      case "default":
+      default:
+        return data.slice().sort((a, b) => {
+          return (
+            new Date(b.timeStamp).getTime() - new Date(a.timeStamp).getTime()
+          );
+        });
+    }
+  };
 
   return (
     <section className="px-4 lg:px-24 relative ">
@@ -55,7 +79,18 @@ export default function Home() {
 
       <GenerateStats showStats={showStats} setShowStats={setShowStats} />
 
-      <div className="mt-32  max-w-7xl mx-auto  place-items-center grid grid-cols-1 md:grid-cols-2 gap-y-8 xl:grid-cols-3 font-sourcecodepro gap-x-4">
+      <div className="w-full flex items-center justify-center  ">
+        <select
+          value={sortBy}
+          onChange={handleSortChange}
+          className="mt-28 rounded border-2 border-[#f7f7f7]  w-64 bg-[#0e0e0e] text-white p-2 font-sourcecodepro"
+        >
+          <option value="default">Sort By Default</option>
+          <option value="question-solved">Sort By Questions Solved</option>
+        </select>
+      </div>
+
+      <div className="mt-8  max-w-7xl mx-auto  place-items-center grid grid-cols-1 md:grid-cols-2 gap-y-8 xl:grid-cols-3 font-sourcecodepro gap-x-4">
         <PromotionCard />
         {loading ? (
           <>
@@ -64,16 +99,9 @@ export default function Home() {
             ))}
           </>
         ) : (
-          searchedData &&
-          searchedData
-            .sort(
-              (a: any, b: any) =>
-                new Date(b.timeStamp).getTime() -
-                new Date(a.timeStamp).getTime()
-            )
-            .map((userData: any, index: number) => (
-              <Card userData={userData} index={index} key={index} />
-            ))
+          sorting(searchedData).map((userData: any, index: number) => (
+            <Card userData={userData} index={index} key={index} />
+          ))
         )}
       </div>
 
