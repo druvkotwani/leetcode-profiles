@@ -10,11 +10,11 @@ A platform to create your LeetCode statistics and showcase your LeetCode profile
 ## Languages/Tools
 
 <a href="">
-    <img src="https://skillicons.dev/icons?i=tailwindcss,js,react,firebase,nodejs,vercel" />
+    <img src="https://skillicons.dev/icons?i=tailwindcss,js,react,mongodb,nodejs,vercel,typescript" />
   </a>
 
 ## 👩🏽‍💻 Demo
-Check out the website: [𝙻𝚎𝚎𝚝𝙲𝚘𝚍𝚎 𝙿𝚛𝚘𝚏𝚒𝚕𝚎𝚜](https://leetcode-profiles.vercel.app/)
+Check out the website: [𝙻𝚎𝚎𝚝𝙲𝚘𝚍𝚎 𝙿𝚛𝚘𝚏𝚒𝚕𝚎𝚜](https://leetcode-profiles-delta.vercel.app/)
 
 
 ## 🛠️ Installation Steps
@@ -27,79 +27,23 @@ Check out the website: [𝙻𝚎𝚎𝚝𝙲𝚘𝚍𝚎 𝙿𝚛𝚘𝚏𝚒�
 - Enter the name of your new branch in the text box. (Branch names usually make a reference to what is being changed. Example: `FixMargin`).
 - Click on `Create branch <new branch name>` and this will automatically take you to your new branch. You can make edits on the main branch, but this may cause issues down the line. Best practice is to create a new branch for each separate issue you work on. That way, your `main` branch remains in sync with `leetcode-profiles` `main` branch.
 
-### 3. Setup Firebase:
-- Below are the steps to setup firebase.
-
-### 4. Edit:
+### 3. Edit:
 - Do the desired changes, you want.
 
-### 5. Raise a Pull Request:
+### 4. Raise a Pull Request:
 - And finally, create a [Pull Request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)!
 - Great job! 
 
 
-## Setting up Firebase 
-
-1. **Firebase Account Setup:**
-   - Sign up for a free Firebase account at [Firebase Console](https://console.firebase.google.com/).
-
-2. **Create a Firebase Project:**
-   - Create a new Firebase project via the Firebase Console.
-
-3. **Add Firebase to your web app:**
-   - Set up the firebase for your webapp and then Add Firebase SDK.
-
-4. **Create Database(firestore Database)**
-
-5. **Create a collection with the file format below (not necessary):**
-
-  
-   ### 👇🏽 File Format
-- `userName(String) = druv_kotwani`
-- `website(Map) = {link: https://dhruvkotwani.me/, text: dhruvkotwani.me}`
-- `badgeImg(String) = https://leetcode.com/static/images/badges/dcc-2023-10.png`
-- `mediumBeats(String) = 85.6%`
-- `easyBeats(String) = 96.9%`
-- `totalQuestions(Number) = 2940`
-- `fullName(String) = Dhruv Kotwani`
-- `github(Map) = {link: https://github.com/druvkotwani, text: druvkotwani}`
-- `image(String) = https://assets.leetcode.com/users/avatars/avatar_1672478903.png`
-- `hardBeats(String) = 77.62`
-- `totalSolved(Number) = 282`
-- `easySolved(String) = 165`
-- `linkedin(Map) = {link: https://linkedin.com/in/dhruv-kotwani, text: dhruv-kotwani}`
-- `rank(String) = 230,203`
-- `easyTotal(String) = 746`
-- `mediumSolved(String) = 97`
-- `hardTotal(String) = 645`
-- `hardSolved(String) = 20`
-- `twitter(Map) = {link: https://twitter.com/druv_kotwani, text: druv_kotwani}`
-- `mediumTotal(String) = 1549`
-
-6. **Replace the firebaseConfig inside firebase.js with your actual apiKeys, and rest of the data**
-7. **Add now you are good to go**
-
 ## 🚀 Running Frontend
 To run locally, just `cd` into the `client` and run the following commands to run node modules and serve the website locally.
 ```bash
-npm i
+yarn install 
 ```
 
 ```bash
-npm run dev
+yarn run dev
 ```
-
-## 🚀 Running Backend(only necessary if you had made changes in the api)
-To run locally, just `cd` into the `server` and run the following commands to run node modules and serve the website locally.
-```bash
-npm i
-```
-
-```bash
-node index.js
-```
-
-
 
 
 <hr/>
