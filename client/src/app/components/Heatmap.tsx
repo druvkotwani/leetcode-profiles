@@ -122,6 +122,31 @@ const submissionCalendarData = {
   "1707417600": 1,
 };
 
+function worthCalculator(
+  streak: number,
+  easySolved: number,
+  mediumSolved: number,
+  hardSolved: number,
+  activeYears: number,
+  totalActiveDays: number
+) {
+  const easyPoints = 1;
+  const mediumPoints = 2;
+  const hardPoints = 5;
+  const streakPoints = streak >= 30 ? 10 : 5;
+  const activeYearPoints = 2;
+  const totalActiveDaysPoints = 10;
+
+  return (
+    easySolved * easyPoints +
+    mediumSolved * mediumPoints +
+    hardSolved * hardPoints +
+    streak * streakPoints +
+    activeYears * activeYearPoints +
+    totalActiveDays * totalActiveDaysPoints
+  );
+}
+
 export default function Heatmap() {
   const [isMounted, setIsMounted] = useState(false);
   const [username, setUsername] = useState("");
@@ -316,9 +341,9 @@ export default function Heatmap() {
               <button
                 type="button"
                 onClick={downloadAsImage}
-                disabled={!username || loading}
+                disabled={!data || loading}
                 className={`border flex items-center text-center bg-gradient-to-r from-[#cb42b2] to-[#f38d90]  bg-clip-text text-transparent justify-center gap-2 px-4 h-[40px] rounded-md  font-semibold text-lg mt-4  ${
-                  loading || !username
+                  loading || !data
                     ? "cursor-not-allowed opacity-50"
                     : "cursor-pointer"
                 }`}
@@ -404,7 +429,15 @@ export default function Heatmap() {
 
             <h2 className="text-sm font-semibold mt-4 text-gray-400 text-center">
               <span className="text-[#f3e58d] text-2xl">
-                {data.totalSolved * 10}$
+                {worthCalculator(
+                  data.easySolved,
+                  data.mediumSolved,
+                  data.hardSolved,
+                  data?.activeYears.length,
+                  data?.calendarData.userCalendar.streak,
+                  data?.calendarData.userCalendar.totalActiveDays
+                )}
+                $
               </span>
               <br />
               Estimated Worth
