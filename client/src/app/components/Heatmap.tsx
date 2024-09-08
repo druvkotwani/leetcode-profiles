@@ -443,7 +443,7 @@ export default function Heatmap() {
               Estimated Worth
             </h2>
 
-            <p className="text-white mt-4 flex w-full items-center justify-center">
+            <p className="text-white mt-4 flex w-full items-center justify-center flex-col md:flex-row">
               Get Yours at:&nbsp;
               <Link
                 href="https://leetcode-profiles-delta.vercel.app/worth"
