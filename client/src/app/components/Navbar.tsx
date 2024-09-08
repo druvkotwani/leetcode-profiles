@@ -4,16 +4,25 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
-type NavbarProps = {
-  search: string;
-  setSearch: React.Dispatch<React.SetStateAction<string>>;
-};
+interface NavbarProps {
+  search?: string;
+  setSearch?: (search: string) => void;
+  searchBarPresent?: boolean;
+}
 
-const Navbar: React.FC<NavbarProps> = ({ search, setSearch }) => {
+const Navbar: React.FC<NavbarProps> = ({
+  search,
+  setSearch,
+  searchBarPresent,
+}) => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   return (
-    <nav className="bg-[#0e0e0e] z-10 border-b border-b-white fixed top-0 left-0 w-full md:px-8 px-4  py-4 flex justify-around items-center">
+    <nav
+      className={`bg-[#0e0e0e] z-10 border-b border-b-white fixed top-0 left-0 w-full md:px-8 px-4  py-4 flex ${
+        searchBarPresent ? "justify-around" : "justify-between !px-24"
+      } items-center`}
+    >
       {/* Logo */}
       <Link href="/">
         <Image
@@ -25,24 +34,26 @@ const Navbar: React.FC<NavbarProps> = ({ search, setSearch }) => {
       </Link>
 
       {/* Search */}
-      <form className="">
-        <div className="relative flex ">
-          <input
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            type="text"
-            placeholder="Search by username"
-            className="bg-[#1f1f1f] sm:w-[260px] w-[100px] font-sourcecodepro text-white rounded px-4 py-3  focus:outline-none pl-10"
-          />
-          <Image
-            src="/assets/icons/search.svg"
-            alt="Search Icon"
-            width={20}
-            height={20}
-            className="absolute left-2 -translate-y-1/2 top-1/2 "
-          />
-        </div>
-      </form>
+      {searchBarPresent && (
+        <form className="">
+          <div className="relative flex ">
+            <input
+              value={search}
+              onChange={(e) => setSearch && setSearch(e.target.value)}
+              type="text"
+              placeholder="Search by username"
+              className="bg-[#1f1f1f] sm:w-[260px] w-[100px] font-sourcecodepro text-white rounded px-4 py-3  focus:outline-none pl-10"
+            />
+            <Image
+              src="/assets/icons/search.svg"
+              alt="Search Icon"
+              width={20}
+              height={20}
+              className="absolute left-2 -translate-y-1/2 top-1/2 "
+            />
+          </div>
+        </form>
+      )}
 
       {/* Profile */}
 

@@ -36,6 +36,13 @@ export const data = {
   easySolved: 175,
   mediumSolved: 110,
   hardSolved: 21,
+  activeYears: [2021, 2024],
+  calendarData: {
+    userCalendar: {
+      streak: 39,
+      totalActiveDays: 89,
+    },
+  },
 };
 
 export default function Card({ userData = data, index }: any) {

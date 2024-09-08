@@ -5,17 +5,17 @@ import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
 import GenerateStats from "./components/GenerateStats";
-import { use, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PromotionCard from "./components/PromotionCard";
 import { DataContext } from "./context/DataContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Skeleton from "./components/Skeleton";
+import Link from "next/link";
 
 export default function Home() {
-  const { datas, setDatas } = useContext(DataContext);
+  const { datas, setDatas, search, setSearch } = useContext(DataContext);
   const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState<string>("");
   const [showStats, setShowStats] = useState(false);
   const [sortBy, setSortBy] = useState("default");
 
@@ -75,15 +75,27 @@ export default function Home() {
         />
       </button>
 
-      <Navbar search={search} setSearch={setSearch} />
+      <Navbar search={search} setSearch={setSearch} searchBarPresent={true} />
 
       <GenerateStats showStats={showStats} setShowStats={setShowStats} />
 
-      <div className="w-full flex items-center justify-center  ">
+      <div className="w-full max-w-7xl mx-auto flex flex-col lg:grid grid-cols-3 items-center justify-start gap-4 lg:gap-12 px-8 mt-28">
+        <Link
+          href="/worth"
+          className="flex w-fit  gap-2 rounded border-2 border-[#f7f7f7]  px-4 bg-gradient-to-r from-[#cb42b2] to-[#ecf576]  bg-clip-text text-transparent p-2 font-sourcecodepro font-bold"
+        >
+          <Image
+            src="/assets/icons/money.svg"
+            alt="Leetcode Logo"
+            width={24}
+            height={24}
+          />
+          LeetCode Worth
+        </Link>
         <select
           value={sortBy}
           onChange={handleSortChange}
-          className="mt-28 rounded border-2 border-[#f7f7f7]  w-64 bg-[#0e0e0e] text-white p-2 font-sourcecodepro"
+          className=" rounded border-2 border-[#f7f7f7]  w-64 bg-[#0e0e0e] text-white p-2 font-sourcecodepro"
         >
           <option value="default">Sort By Default</option>
           <option value="question-solved">Sort By Questions Solved</option>
