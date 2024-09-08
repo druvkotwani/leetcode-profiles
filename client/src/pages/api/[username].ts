@@ -91,18 +91,46 @@ export default async function handler(req: any, res: any) {
       username: username,
     },
   };
+  const payload3 = {
+    operationName: "userProfileCalendar",
+    query: `
+      query userProfileCalendar($username: String!, $year: Int) {
+        matchedUser(username: $username) {
+          userCalendar(year: $year) {
+            activeYears
+            streak
+            totalActiveDays
+            dccBadges {
+              timestamp
+              badge {
+                name
+                icon
+              }
+            }
+            submissionCalendar
+          }
+        }
+      }
+    `,
+    variables: {
+      username: username,
+    },
+  };
 
   try {
     const response1 = await axios.post(url, payload1, { headers });
     const response2 = await axios.post(url, payload2, { headers });
+    const response3 = await axios.post(url, payload3, { headers });
 
     const data1 = response1.data;
     const data2 = response2.data;
+    const data3 = response3.data;
 
     // Merge the data from both responses
     const combinedData = {
       userSessionProgress: data1.data,
       userPublicProfile: data2.data,
+      userProfileCalendar: data3.data,
     };
 
     const total = combinedData.userSessionProgress.allQuestionsCount[0].count;
@@ -151,6 +179,10 @@ export default async function handler(req: any, res: any) {
       },
     };
 
+    const calendarData = combinedData.userProfileCalendar.matchedUser;
+    const activeYears = calendarData.userCalendar.activeYears;
+    const submissionCalendar = calendarData.userCalendar.submissionCalendar;
+
     res.status(200).json({
       profileData,
       aboutData,
@@ -162,6 +194,9 @@ export default async function handler(req: any, res: any) {
       easySolved,
       mediumSolved,
       hardSolved,
+      calendarData,
+      activeYears,
+      submissionCalendar,
     });
   } catch (error) {
     console.error(error);

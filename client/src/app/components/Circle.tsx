@@ -29,7 +29,7 @@ const Circle = ({ total }: any) => {
               strokeWidth="5"
               strokeLinecap="round"
               stroke="#FFC11F"
-              className="cursor-pointer "
+              className=""
               strokeDasharray={`${dashLength} ${circumference}`}
               strokeDashoffset="0"
               data-difficulty="ALL"
