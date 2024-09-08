@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
 import GenerateStats from "./components/GenerateStats";
-import { use, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PromotionCard from "./components/PromotionCard";
 import { DataContext } from "./context/DataContext";
 import { ToastContainer } from "react-toastify";
@@ -13,9 +13,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Skeleton from "./components/Skeleton";
 
 export default function Home() {
-  const { datas, setDatas } = useContext(DataContext);
+  const { datas, setDatas, search, setSearch } = useContext(DataContext);
   const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState<string>("");
   const [showStats, setShowStats] = useState(false);
   const [sortBy, setSortBy] = useState("default");
 
@@ -75,7 +74,7 @@ export default function Home() {
         />
       </button>
 
-      <Navbar search={search} setSearch={setSearch} />
+      <Navbar search={search} setSearch={setSearch} searchBarPresent={true} />
 
       <GenerateStats showStats={showStats} setShowStats={setShowStats} />
 
