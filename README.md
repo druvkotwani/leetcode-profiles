@@ -3,6 +3,8 @@
 A platform to create your LeetCode statistics and showcase your LeetCode profile globally.
 
 ![Screenshot 2023-11-23 154638](https://github.com/druvkotwani/Leetcode-Profiles/assets/96691139/9f6bfbb4-c389-4509-9e42-a0d394651180)
+![image](https://github.com/user-attachments/assets/25d9173e-7ab8-429d-baf7-a1b01ef635fa)
+
 
 
 
