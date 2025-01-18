@@ -15,7 +15,7 @@
     "axios": "^1.7.4",
     "html2canvas": "^1.4.1",
     "mongoose": "^8.5.2",
-    "next": "14.2.10",
+    "next": "14.2.21",
     "react": "^18",
     "react-calendar-heatmap": "^1.9.0",
     "react-dom": "^18",
