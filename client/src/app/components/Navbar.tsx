@@ -35,21 +35,21 @@ const Navbar: React.FC<NavbarProps> = ({
 
       {/* Search */}
       {searchBarPresent && (
-        <form className="">
-          <div className="relative flex ">
+        <form className="" onSubmit={(e) => e.preventDefault()}>
+          <div className="relative flex items-center">
             <input
               value={search}
               onChange={(e) => setSearch && setSearch(e.target.value)}
               type="text"
-              placeholder="Search by username"
-              className="bg-[#1f1f1f] sm:w-[260px] w-[100px] font-sourcecodepro text-white rounded px-4 py-3  focus:outline-none pl-10"
+              placeholder="Search by name"
+              className="bg-[#1f1f1f] sm:w-[260px] w-[100px] font-sourcecodepro text-white rounded-l px-4 py-3 focus:outline-none pl-10"
             />
             <Image
               src="/assets/icons/search.svg"
               alt="Search Icon"
               width={20}
               height={20}
-              className="absolute left-2 -translate-y-1/2 top-1/2 "
+              className="absolute left-2 -translate-y-1/2 top-1/2"
             />
           </div>
         </form>
