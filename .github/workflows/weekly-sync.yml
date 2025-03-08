@@ -1,0 +1,23 @@
+name: Bi-Weekly LeetCode Profile Sync
+
+on:
+  schedule:
+    # Run every other Sunday at 00:00 UTC (every 2 weeks)
+    - cron: "0 0 */14 * *"
+
+  # Allow manual triggering
+  workflow_dispatch:
+
+jobs:
+  sync-profiles:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Profile Sync
+        run: |
+          curl -X GET "${{ secrets.APP_URL }}/api/syncAllProfiles?secretKey=${{ secrets.SYNC_SECRET_KEY }}" \
+            -H "Content-Type: application/json" \
+            --fail
+        env:
+          APP_URL: ${{ secrets.APP_URL }}
+          SYNC_SECRET_KEY: ${{ secrets.SYNC_SECRET_KEY }}

@@ -112,26 +112,42 @@ export default function Home() {
       <GenerateStats showStats={showStats} setShowStats={setShowStats} />
 
       <div className="w-full max-w-7xl mx-auto flex flex-col lg:grid grid-cols-3 items-center justify-start gap-4 lg:gap-12 px-8 mt-28">
-        <Link
-          href="/worth"
-          className="flex w-fit  gap-2 rounded border-2 border-[#f7f7f7]  px-4 bg-gradient-to-r from-[#cb42b2] to-[#ecf576]  bg-clip-text text-transparent p-2 font-sourcecodepro font-bold"
-        >
-          <Image
-            src="/assets/icons/money.svg"
-            alt="Leetcode Logo"
-            width={24}
-            height={24}
-          />
-          LeetCode Worth
-        </Link>
+        <div className="flex flex-wrap gap-4">
+          <Link
+            href="/worth"
+            className="flex w-fit gap-2 rounded border-2 border-[#f7f7f7] px-4 bg-gradient-to-r from-[#cb42b2] to-[#ecf576] bg-clip-text text-transparent p-2 font-sourcecodepro font-bold"
+          >
+            <Image
+              src="/assets/icons/money.svg"
+              alt="Leetcode Logo"
+              width={24}
+              height={24}
+            />
+            LeetCode Worth
+          </Link>
+        </div>
         <select
           value={sortBy}
           onChange={handleSortChange}
-          className=" rounded border-2 border-[#f7f7f7]  w-64 bg-[#0e0e0e] text-white p-2 font-sourcecodepro"
+          className="rounded border-2 border-[#f7f7f7] w-64 bg-[#0e0e0e] text-white p-2 font-sourcecodepro"
         >
           <option value="default">Sort By Default</option>
           <option value="question-solved">Sort By Questions Solved</option>
         </select>
+        <div className="flex flex-wrap gap-4">
+          <Link
+            href="/admin/sync"
+            className="flex w-fit gap-2 rounded border-2 border-[#f7f7f7] px-4 bg-gradient-to-r from-[#3b82f6] to-[#22d3ee] bg-clip-text text-transparent p-2 font-sourcecodepro font-bold"
+          >
+            <Image
+              src="/assets/icons/refresh.svg"
+              alt="Sync Icon"
+              width={24}
+              height={24}
+            />
+            Sync Profiles
+          </Link>
+        </div>
       </div>
 
       <div className="mt-8  max-w-7xl mx-auto  place-items-center grid grid-cols-1 md:grid-cols-2 gap-y-8 xl:grid-cols-3 font-sourcecodepro gap-x-4">
