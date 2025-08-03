@@ -27,14 +27,14 @@ const option = [
 ];
 
 const PromotionCard = () => {
-  // State to hold the random index
+  // Use a static index initially, then randomize after hydration
   const [randomIndex, setRandomIndex] = useState(0);
 
-  // Effect to set random index on initial render
+  // Effect to randomize after hydration is complete
   useEffect(() => {
     const random = Math.floor(Math.random() * option.length);
     setRandomIndex(random);
-  }, []); // Empty dependency array ensures this effect runs only once
+  }, []);
 
   return (
     <Link
@@ -43,7 +43,7 @@ const PromotionCard = () => {
       target="_blank"
       className="hover:scale-105 transition-all ease-in-out duration-300 font-sourcecodepro "
     >
-      <div className="flex justify-betwen max-w-[400px] flex-col  items-center rounded h-[280px] border-2 border-[#f7f7f7] ">
+      <div className="flex justify-between max-w-[400px] flex-col items-center rounded min-h-[280px] max-h-[280px] border-2 border-[#f7f7f7] overflow-hidden">
         {/* Heading and Logo */}
         <div className="flex gap-1 xl:gap-4 items-center justify-between   ">
           <div className="flex items-center text-white justify-center px-4 py-2 w-full gap-2   rounded-md">
