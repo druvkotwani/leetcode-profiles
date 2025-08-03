@@ -13,6 +13,25 @@ const sourcecodepro = Source_Code_Pro({
 export const metadata: Metadata = {
   title: "Leetcode Profiles",
   description: "Generate your Leetcode Stats",
+  openGraph: {
+    title: "Leetcode Profiles",
+    description: "Generate your Leetcode Stats",
+    url: "https://leetcode-profiles.dhruvkotwani.xyz",
+    images: [
+      {
+        url: "https://leetcode-profiles.dhruvkotwani.xyz/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Leetcode Profiles",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Leetcode Profiles",
+    description: "Generate your Leetcode Stats",
+    images: ["https://leetcode-profiles.dhruvkotwani.xyz/og.png"],
+  },
 };
 
 export default function RootLayout({

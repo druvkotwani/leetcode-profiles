@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
 import GenerateStats from "./components/GenerateStats";
-import { useContext, useEffect, useState, useMemo } from "react";
+import { useContext, useEffect, useState, useMemo, useCallback } from "react";
 import PromotionCard from "./components/PromotionCard";
 import { DataContext } from "./context/DataContext";
 import { ToastContainer } from "react-toastify";
@@ -41,39 +41,42 @@ export default function Home() {
     setPagination((prev) => ({ ...prev, currentPage: 1 }));
   }, [debouncedSearch]);
 
-  const fetchData = async (page = 1) => {
-    try {
-      setLoading(true);
-      const queryParams = new URLSearchParams();
+  const fetchData = useCallback(
+    async (page = 1) => {
+      try {
+        setLoading(true);
+        const queryParams = new URLSearchParams();
 
-      if (debouncedSearch) {
-        queryParams.append("search", debouncedSearch);
+        if (debouncedSearch) {
+          queryParams.append("search", debouncedSearch);
+        }
+
+        queryParams.append("page", page.toString());
+        queryParams.append("limit", pagination.limit.toString());
+        queryParams.append("sortBy", sortBy);
+
+        const res = await fetch(`/api/fetchdata?${queryParams.toString()}`);
+        const response = await res.json();
+
+        setDatas(response.data);
+        setPagination({
+          currentPage: response.pagination.page,
+          totalPages: response.pagination.totalPages,
+          totalItems: response.pagination.total,
+          limit: response.pagination.limit,
+        });
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching messages:", error);
+        setLoading(false);
       }
-
-      queryParams.append("page", page.toString());
-      queryParams.append("limit", pagination.limit.toString());
-      queryParams.append("sortBy", sortBy);
-
-      const res = await fetch(`/api/fetchdata?${queryParams.toString()}`);
-      const response = await res.json();
-
-      setDatas(response.data);
-      setPagination({
-        currentPage: response.pagination.page,
-        totalPages: response.pagination.totalPages,
-        totalItems: response.pagination.total,
-        limit: response.pagination.limit,
-      });
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching messages:", error);
-      setLoading(false);
-    }
-  };
+    },
+    [debouncedSearch, pagination.limit, setDatas, sortBy]
+  );
 
   useEffect(() => {
     fetchData(pagination.currentPage);
-  }, [debouncedSearch, pagination.currentPage, pagination.limit, sortBy]);
+  }, [fetchData, pagination.currentPage]);
 
   useEffect(() => {
     setTimeout(() => {
