@@ -1,6 +1,14 @@
 import Image from "next/image";
+import { useState } from "react";
 
 const Profile = ({ userData, index }: any) => {
+  const [imageError, setImageError] = useState(false);
+
+  // Fallback avatar URL or generate one based on username
+  const fallbackAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(
+    userData?.fullName || userData?.username || "User"
+  )}&background=0D1117&color=ffffff&size=70`;
+
   return (
     <div className="mt-4 mb-2">
       <div className="flex  justify-center gap-2">
@@ -10,9 +18,18 @@ const Profile = ({ userData, index }: any) => {
           <Image
             width={70}
             height={70}
-            src={userData?.image}
+            src={
+              imageError ? fallbackAvatar : userData?.image || fallbackAvatar
+            }
             alt="Avatar"
             className="h-[70px] w-[70px] rounded-lg object-cover"
+            onError={(e) => {
+              console.error("Image failed to load:", userData?.image);
+              setImageError(true);
+            }}
+            onLoad={() =>
+              console.log("Image loaded successfully:", userData?.image)
+            }
           />
         </div>
 
